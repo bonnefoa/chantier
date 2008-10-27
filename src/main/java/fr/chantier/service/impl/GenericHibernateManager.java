@@ -16,7 +16,11 @@ import java.util.List;
 public class GenericHibernateManager<T, ID extends Serializable, DAO extends GenericDAO>
         implements GenericManager<T, ID, DAO> {
 
-    private DAO dao;
+    protected DAO dao;
+
+    public GenericHibernateManager(DAO dao) {
+        this.dao = dao;
+    }
 
     public T findById(ID id, boolean lock) {
         return (T) dao.findById(id, lock);

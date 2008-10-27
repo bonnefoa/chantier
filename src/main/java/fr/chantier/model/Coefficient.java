@@ -1,9 +1,6 @@
 package fr.chantier.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Basic;
-import javax.persistence.Column;
+import javax.persistence.*;
 import java.math.BigInteger;
 
 /**
@@ -58,5 +55,17 @@ public class Coefficient {
         int result = stCoef != null ? stCoef.hashCode() : 0;
         result = 31 * result + (interCoef != null ? interCoef.hashCode() : 0);
         return result;
+    }
+
+    private int coefficientId;
+
+    @Id
+    @Column(name = "coefficient_id", nullable = false, length = 10)
+    public int getCoefficientId() {
+        return coefficientId;
+    }
+
+    public void setCoefficientId(int coefficientId) {
+        this.coefficientId = coefficientId;
     }
 }

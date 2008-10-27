@@ -14,8 +14,10 @@ CREATE TABLE chantier.clients (
 );
 
 CREATE TABLE chantier.coefficient (
+  coefficient_id SERIAL,
   St_coef decimal(5,4)  NOT NULL,
-  Inter_coef decimal(5,2)  NOT NULL
+  Inter_coef decimal(5,2)  NOT NULL,
+  PRIMARY KEY (coefficient_id)
 );
 
 
