@@ -67,82 +67,7 @@
     <favorites_list name="chantier" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="SousTraitantsManagerImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/SousTraitantsManagerImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="624" selection-end="624" vertical-scroll-proportion="0.3364486">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HistoriqueSommeManagerImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/HistoriqueSommeManagerImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="435" selection-end="435" vertical-scroll-proportion="0.3084112">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HistoriqueHeuresManagerImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/HistoriqueHeuresManagerImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="4" selection-start="477" selection-end="477" vertical-scroll-proportion="0.34951457">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GenericHibernateManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/GenericHibernateManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="338" selection-end="338" vertical-scroll-proportion="0.32038835">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommandesManagerImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/CommandesManagerImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="4" selection-start="519" selection-end="519" vertical-scroll-proportion="0.34951457">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CoefficientManagerImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/CoefficientManagerImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="4" selection-start="452" selection-end="452" vertical-scroll-proportion="0.36363637">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientsManagerImpl.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/ClientsManagerImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="4" selection-start="363" selection-end="363" vertical-scroll-proportion="0.3939394">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IntervenantsManagerImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/IntervenantsManagerImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="540" selection-end="540" vertical-scroll-proportion="0.3243243">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -449,13 +374,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1022" height="748" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295688" order="3" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24948665" order="1" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5594059" order="1" />
+      <window_info id="Maven Runner Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32838285" order="7" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="3" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
@@ -465,15 +391,14 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="6" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24948665" order="1" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3100616" order="3" />
+      <window_info id="Maven Projects" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3100616" order="3" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31519508" order="0" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33983573" order="0" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="5" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
       <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="2" />
-      <window_info id="Maven Runner Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" order="7" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="4" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="0" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="0" />
@@ -542,27 +467,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/CommandesManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="86" selection-start="494" selection-end="494" vertical-scroll-proportion="0.3084112">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/CoefficientManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="81" selection-start="416" selection-end="427" vertical-scroll-proportion="0.2972973">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/HistoriqueHeuresManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/ClientsManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="39" selection-start="297" selection-end="297" vertical-scroll-proportion="0.3243243">
@@ -600,34 +504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/IntervenantsManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="540" selection-end="540" vertical-scroll-proportion="0.3243243">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/SousTraitantsManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="624" selection-end="624" vertical-scroll-proportion="0.3364486">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/HistoriqueSommeManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="435" selection-end="435" vertical-scroll-proportion="0.3084112">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/HistoriqueHeuresManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="4" selection-start="477" selection-end="477" vertical-scroll-proportion="0.34951457">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/GenericHibernateManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="13" selection-start="338" selection-end="338" vertical-scroll-proportion="0.32038835">
@@ -635,23 +511,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/CommandesManagerImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/pages/Index.tml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="4" selection-start="519" selection-end="519" vertical-scroll-proportion="0.34951457">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/CoefficientManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="16" selection-start="451" selection-end="473" vertical-scroll-proportion="0.35135135">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/CoefficientManagerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="4" selection-start="452" selection-end="452" vertical-scroll-proportion="0.36363637">
+        <state line="21" column="8" selection-start="688" selection-end="779" vertical-scroll-proportion="0.45945945">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/ClientsManagerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="4" selection-start="363" selection-end="363" vertical-scroll-proportion="0.3939394">
+        <state line="13" column="119" selection-start="425" selection-end="425" vertical-scroll-proportion="0.36448598">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/CommandesManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="127" selection-start="585" selection-end="585" vertical-scroll-proportion="0.3084112">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/HistoriqueSommeManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="151" selection-start="637" selection-end="637" vertical-scroll-proportion="0.32038835">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/IntervenantsManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="139" selection-start="616" selection-end="616" vertical-scroll-proportion="0.32038835">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/SousTraitantsManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="559" selection-end="559" vertical-scroll-proportion="0.32038835">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/HistoriqueHeuresManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/HistoriqueHeuresManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="64" selection-start="276" selection-end="276" vertical-scroll-proportion="0.4854369">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

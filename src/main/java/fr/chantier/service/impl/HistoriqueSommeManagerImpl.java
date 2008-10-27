@@ -6,6 +6,7 @@ import fr.chantier.model.HistoriqueSomme;
 import fr.chantier.dao.ClientsDAO;
 import fr.chantier.dao.HistoriqueHeuresDAO;
 import fr.chantier.dao.HistoriqueSommeDAO;
+import fr.chantier.service.HistoriqueSommeManager;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,7 +15,7 @@ import fr.chantier.dao.HistoriqueSommeDAO;
  * Time: 6:16:18 PM
  * To change this template use File | Settings | File Templates.
  */
-public class HistoriqueSommeManagerImpl extends GenericHibernateManager<HistoriqueSomme, Integer, HistoriqueSommeDAO>{
+public class HistoriqueSommeManagerImpl extends GenericHibernateManager<HistoriqueSomme, Integer, HistoriqueSommeDAO> implements HistoriqueSommeManager{
     public HistoriqueSommeManagerImpl(HistoriqueSommeDAO historiqueSommeDAO) {
         super(historiqueSommeDAO);
     }

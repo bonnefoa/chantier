@@ -13,4 +13,6 @@ import fr.chantier.dao.CoefficientDAO;
  * To change this template use File | Settings | File Templates.
  */
 public interface CoefficientManager extends GenericManager<Coefficient, Integer, CoefficientDAO> {
+
+    Coefficient findCurrentCoefficient();
 }

@@ -6,6 +6,7 @@ import fr.chantier.model.Commandes;
 import fr.chantier.dao.ClientsDAO;
 import fr.chantier.dao.CoefficientDAO;
 import fr.chantier.dao.CommandesDAO;
+import fr.chantier.service.CommandesManager;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,7 +15,7 @@ import fr.chantier.dao.CommandesDAO;
  * Time: 6:16:18 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CommandesManagerImpl extends GenericHibernateManager<Commandes, Integer, CommandesDAO> {
+public class CommandesManagerImpl extends GenericHibernateManager<Commandes, Integer, CommandesDAO> implements CommandesManager {
     public CommandesManagerImpl(CommandesDAO commandesDAO) {
         super(commandesDAO);
     }

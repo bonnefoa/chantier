@@ -1,9 +1,7 @@
 package fr.chantier.service.impl;
 
-import fr.chantier.model.Clients;
-import fr.chantier.model.HistoriqueHeures;
-import fr.chantier.dao.ClientsDAO;
 import fr.chantier.dao.HistoriqueHeuresDAO;
+import fr.chantier.model.HistoriqueHeures;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,7 +10,7 @@ import fr.chantier.dao.HistoriqueHeuresDAO;
  * Time: 6:16:18 PM
  * To change this template use File | Settings | File Templates.
  */
-public class HistoriqueHeuresManagerImpl extends GenericHibernateManager<HistoriqueHeures, Integer, HistoriqueHeuresDAO> {
+public class HistoriqueHeuresManagerImpl extends GenericHibernateManager<HistoriqueHeures, Integer, HistoriqueHeuresDAO> implements HistoriqueHeuresManager {
     public HistoriqueHeuresManagerImpl(HistoriqueHeuresDAO historiqueHeuresDAO) {
         super(historiqueHeuresDAO);
     }
