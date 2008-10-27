@@ -1,0 +1,21 @@
+format 60
+
+classcanvas 128130 class_ref 128898 // Participation
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
+  xyz 80 68 2000
+end
+classcanvas 128258 class_ref 128386 // Chantier
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
+  xyz 107 250 2000
+end
+relationcanvas 128514 relation_ref 130050 // ParticipationHasChantier
+  from ref 128130 z 1999 label "ParticipationHasChantier" italic xyz 59 176 3000 to ref 128258
+  role_a_pos 151 228 3000 no_role_b
+  multiplicity_a_pos 123 228 3000 no_multiplicity_b
+end
+relationcanvas 128642 relation_ref 129922 // <directional aggregation>
+  from ref 128130 z 1999 to ref 128258
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

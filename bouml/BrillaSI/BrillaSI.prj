@@ -1,0 +1,443 @@
+format 60
+"BrillaSI"
+  revision 2
+  modified_by 2 "sora"
+
+
+  
+  // class settings
+  default_attribute_visibility private default_relation_visibility private default_operation_visibility public
+  //class diagram settings
+  draw_all_relations yes hide_attributes no hide_operations no show_members_full_definition no show_members_visibility no show_members_stereotype no show_members_multiplicity no show_members_initialization no member_max_width 127 show_parameter_dir yes show_parameter_name yes package_name_in_tab no class_drawing_mode natural drawing_language uml show_context_mode no auto_label_position yes show_infonote no shadow yes show_stereotype_properties no
+  //use case diagram settings
+  package_name_in_tab no show_context no auto_label_position yes draw_all_relations yes class_drawing_mode actor shadow yes show_stereotype_properties no
+  //sequence diagram settings
+  show_full_operations_definition no write_horizontally yes class_drawing_mode natural drawing_language uml draw_all_relations yes shadow yes show_stereotype_properties no
+  //collaboration diagram settings
+  show_full_operations_definition no show_hierarchical_rank no write_horizontally yes drawing_language uml package_name_in_tab no show_context no draw_all_relations yes shadow yes show_stereotype_properties no
+  //object diagram settings
+   write_horizontally yes package_name_in_tab no show_context no auto_label_position yes draw_all_relations yes shadow yes show_stereotype_properties no
+  //component diagram settings
+  package_name_in_tab no show_context no auto_label_position yes draw_all_relations yes shadow yes
+  draw_component_as_icon no show_component_req_prov no show_component_rea no show_stereotype_properties no
+  //deployment diagram settings
+  package_name_in_tab no show_context no write_horizontally yes auto_label_position yes draw_all_relations yes shadow yes
+  draw_component_as_icon no show_component_req_prov no show_component_rea no show_stereotype_properties no
+  //state diagram settings
+  package_name_in_tab no show_context no auto_label_position yes write_trans_label_horizontally yes show_trans_definition no draw_all_relations yes shadow yes
+  show_activities yes region_horizontally yes drawing_language uml show_stereotype_properties no
+  //activity diagram settings
+  package_name_in_tab no show_context no show_opaque_action_definition no auto_label_position yes write_flow_label_horizontally no draw_all_relations yes shadow yes
+  show_infonote yes drawing_language uml show_stereotype_properties no
+  
+  class_color yellow duration_color transparent continuation_color gray note_color blue fragment_color transparent subject_color transparent usecase_color yellow package_color transparent component_color green artifact_color green deploymentnode_color gray state_color yellow stateaction_color transparent activity_color transparent activityregion_color transparent activityaction_color transparent parameterpin_color white 
+  font_size 10
+  diagram_format A4
+
+  mark_for_import
+  
+  classview 128130 "Chantier"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    class 128130 "Personne"
+      abstract visibility package stereotype "entity"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Represente une personne morale ou physique"
+      attribute 128130 "nom"
+	private explicit_type "string"
+	multiplicity "1"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "Nom de l'employe"
+      end
+    end
+
+    class 128898 "Participation"
+      abstract visibility package stereotype "entity"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Participation a un chantier. 
+La participation peut provenir d'un employe ou d'un sous-traitant. Auquel cas, on reference respectivement le nombre d'heure ou le montant de la participation."
+      attribute 129538 "dateParticipation"
+	private explicit_type "date"
+	multiplicity "1"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "Date de la participation."
+      end
+
+      classrelation 130562 // <directional aggregation>
+	relation 129922 o-->
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 130562 // <directional aggregation>
+	  b parent class_ref 128386 // Chantier
+      end
+
+      classrelation 130690 // chantier (ParticipationHasChantier)
+	relation 130050 o--> name "ParticipationHasChantier"
+	  a role_name "chantier" multiplicity "1" private
+	    comment "Chantier lie a la participation."
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 130690 // chantier (ParticipationHasChantier)
+	  b parent class_ref 128386 // Chantier
+      end
+    end
+
+    class 128258 "SousTraitant"
+      visibility package stereotype "entity"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Represente un sous-traitant de la societe"
+      classrelation 128898 // <generalisation>
+	relation 128642 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 128898 // <generalisation>
+	  b parent class_ref 128130 // Personne
+      end
+    end
+
+    class 128514 "Depense"
+      visibility package stereotype "entity"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Les depenses representent la somme investit lors de la participation d'un sous-traitant a un chantier.
+Une depense correspond 
+
+"
+      attribute 128898 "montant"
+	private explicit_type "float"
+	multiplicity "1"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "Montant de la depense"
+      end
+
+      classrelation 129026 // <generalisation>
+	relation 128770 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 129026 // <generalisation>
+	  b parent class_ref 128898 // Participation
+      end
+
+      classrelation 130306 // sousTraitant (DepenseHasSousTraitant)
+	relation 129666 o--> name "DepenseHasSousTraitant"
+	  a role_name "sousTraitant" multiplicity "1" private
+	    comment "Sous-traitant lie a la depense"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 130306 // sousTraitant (DepenseHasSousTraitant)
+	  b parent class_ref 128258 // SousTraitant
+      end
+    end
+
+    class 128770 "Employe"
+      visibility package stereotype "entity"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Employe de la societe"
+      attribute 129410 "prenom"
+	private explicit_type "string"
+	multiplicity "1"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "Prenom de l'employe"
+      end
+
+      classrelation 128770 // <generalisation>
+	relation 128514 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 128770 // <generalisation>
+	  b parent class_ref 128130 // Personne
+      end
+    end
+
+    class 128642 "Travaille"
+      visibility package stereotype "entity"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Participation d'un employe a un chantier.
+Chaque participation en heure rentree est enregistree et conservee.
+"
+      attribute 129154 "nombreHeure"
+	private explicit_type "float"
+	multiplicity "1"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "Nombre d'heure travaille pour une participation pour un employe donne, sur un chantier donne.
+Il y a autant de participation que d'heures rentrees par l'utilisateur."
+      end
+
+      classrelation 129154 // <generalisation>
+	relation 128898 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 129154 // <generalisation>
+	  b parent class_ref 128898 // Participation
+      end
+
+      classrelation 130434 // employe (TravailleHasEmploye)
+	relation 129794 o--> name "TravailleHasEmploye"
+	  a role_name "employe" multiplicity "1" private
+	    comment "Employe lie aux heures travaillees"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 130434 // employe (TravailleHasEmploye)
+	  b parent class_ref 128770 // Employe
+      end
+    end
+
+    class 128386 "Chantier"
+      visibility package stereotype "entity"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Chantier de la societe. 
+Les employes participent aux chantiers.
+Les sous-traitants peuvent apporter leurs contributions.
+L'historique des heures travaillees par chaque employees est sauvegardees.
+Le montant de chaque depense dues aux sous-traitants est egalement referencees."
+      attribute 128514 "nom"
+	private explicit_type "string"
+	multiplicity "1"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "Nom de la commande"
+      end
+
+      attribute 128642 "dateDebut"
+	private explicit_type "Date"
+	multiplicity "1"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "Date de debut du chantier"
+      end
+
+      attribute 128770 "dateFin"
+	private explicit_type "dateFin"
+	multiplicity "1"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "Date de la fin du chantier"
+      end
+    end
+
+    classdiagram 128130 "Entitees"
+      draw_all_relations no hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    classdiagram 128258 "LiaisonsChantier"
+      draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    classdiagram 128386 "LiaisonPersonneParticipation"
+      draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    class 129026 "ChantierService"
+      visibility package stereotype "service"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Permet de gerer les services du chantier"
+      classrelation 131458 // <dependency>
+	relation 130818 -_->
+	  a default
+	    classrelation_ref 131458 // <dependency>
+	  b parent class_ref 128386 // Chantier
+      end
+    end
+
+    class 129282 "TravailleManager"
+      visibility package stereotype "service"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Permet de gerer les travaux sur le chantier"
+      classrelation 131074 // <dependency>
+	relation 130434 -_->
+	  a default
+	    classrelation_ref 131074 // <dependency>
+	  b parent class_ref 128642 // Travaille
+      end
+    end
+
+    classdiagram 128514 "LiaisonServices"
+      draw_all_relations no hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    class 129410 "DepenseManager"
+      visibility package stereotype "service"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Permet de gerer les travaux sur le chantier"
+      classrelation 131842 // <dependency>
+	relation 131202 -_->
+	  a default
+	    classrelation_ref 131842 // <dependency>
+	  b parent class_ref 128514 // Depense
+      end
+    end
+
+    class 129538 "EmployeManager"
+      visibility package stereotype "service"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Manager des employes"
+      classrelation 131970 // <dependency>
+	relation 131330 -_->
+	  a default
+	    classrelation_ref 131970 // <dependency>
+	  b parent class_ref 128770 // Employe
+      end
+    end
+
+    class 129666 "SousTraitantManager"
+      visibility package stereotype "service"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 132098 // <dependency>
+	relation 131458 -_->
+	  a default
+	    classrelation_ref 132098 // <dependency>
+	  b parent class_ref 128258 // SousTraitant
+      end
+    end
+  end
+end
