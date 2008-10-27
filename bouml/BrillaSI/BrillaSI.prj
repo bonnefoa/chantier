@@ -1,6 +1,6 @@
 format 60
 "BrillaSI"
-  revision 2
+  revision 3
   modified_by 2 "sora"
 
 
@@ -440,4 +440,8 @@ ${members}}
       end
     end
   end
+
+  package_ref 128002 // fr.chantier.service
+preserve_bodies
+
 end

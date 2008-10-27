@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+   <head>
+      <title>pizzaJava Start Page</title>
+      <link href="${asset:context:css/style.css}" rel="stylesheet" type="text/css"/>
+   </head>
+   <body>
+      <div id="banner">
+         <img src="${asset:context:images/bannerLeft.png}" alt=""/>
+         <h1>Commande de pizza</h1>
+      </div>
+
+      <div id="menu">
+         <img src="${asset:context:images/menu.png}" alt=""/>
+         <div>
+            pizzas&nbsp;:
+            <ul>
+               <li>
+                  <t:pagelink t:page="Index">accueil</t:pagelink>
+               </li>
+               <li>
+                  <t:pagelink t:page="utilisateur/APropos">à propos</t:pagelink>
+               </li>
+            </ul>
+         </div>
+         <hr/>
+         <div>
+            Autres ressources&nbsp;:
+            <ul>
+               <li>
+                  <a href="/torrents/">torrents</a>
+               </li>
+            </ul>
+         </div>
+         <hr/>
+         <div>
+            <img src="${asset:context:images/valid-xhtml10.png}" alt="XHTML valid" title="Ce site est valide XHTML"/>
+            <img src="${asset:context:images/vcss.gif}" alt="CSS valid" title="Le css de ce site est valide "/>
+         </div>
+      </div>
+
+      <div id="content">
+
+         <noscript>
+            <p id="noscript" class="infoBanner">
+               L'utilisation du javascript est fortement conseillée pour une meilleure utilisation de ce site.
+            </p>
+         </noscript>
+         <!--[if lte IE 6]>
+          <p id="ie6" class="infoBanner">
+          Soyons clair : tu utilises une version complètement dépassée d'Internet Explorer.
+          Ton navigateur est une honte pour le web. Tu devrais rapidement en changer ! Prend Firefox par exemple :D
+          </p>
+          <![endif]-->
+         <!--[if IE 7]>
+          <p id="ie7" class="infoBanner">
+          Tu utilises ie7, qui est un navigateur peu respecteux des standards du web.
+          Ce site a été conçu pour les navigateurs respecteux de ces standards, ne t'étonne donc pas s'il ne s'affiche pas bien !
+          Tu devrais changer, pour Firefox par exemple :D
+          </p>
+          <![endif]-->
+
+         <t:body/>
+      </div>
+   </body>
+</html>

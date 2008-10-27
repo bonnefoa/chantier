@@ -2,15 +2,15 @@ format 60
 
 classcanvas 128002 class_ref 129026 // ChantierService
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
-  xyz 512 30 2000
+  xyz 508 117 2000
 end
 classcanvas 128258 class_ref 129282 // TravailleManager
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
-  xyz 185 10 2000
+  xyz 89 118 2000
 end
 classcanvas 128642 class_ref 128258 // SousTraitant
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
-  xyz 358 284 2004
+  xyz 363 296 2004
 end
 classcanvas 128898 class_ref 128514 // Depense
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
@@ -18,7 +18,7 @@ classcanvas 128898 class_ref 128514 // Depense
 end
 classcanvas 129154 class_ref 128770 // Employe
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
-  xyz 253 286 2000
+  xyz 252 295 2000
 end
 classcanvas 129282 class_ref 128386 // Chantier
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
@@ -30,7 +30,7 @@ classcanvas 129410 class_ref 128642 // Travaille
 end
 classcanvas 130562 class_ref 129410 // DepenseManager
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
-  xyz 5 10 2014
+  xyz 22 43 2014
 end
 classcanvas 130818 class_ref 129538 // EmployeManager
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
@@ -38,7 +38,11 @@ classcanvas 130818 class_ref 129538 // EmployeManager
 end
 classcanvas 131074 class_ref 129666 // SousTraitantManager
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default show_stereotype_properties default
-  xyz 333 15 2004
+  xyz 333 194 2005
+end
+packagecanvas 131330 
+  package_ref 128002 // fr.chantier.service
+    xyzwh 18 6 2004 622 264
 end
 relationcanvas 130050 relation_ref 130434 // <dependency>
   from ref 128258 z 1999 to ref 129410

@@ -1,17 +1,18 @@
 window_sizes 1022 726 264 752 507 136
 diagrams
-  classdiagram_ref 128130 // Entitees
-    620 405 100 4 0 0
+  active  classdiagram_ref 128130 // Entitees
+    752 507 100 4 0 0
   classdiagram_ref 128258 // LiaisonsChantier
     585 405 100 4 0 0
   classdiagram_ref 128386 // LiaisonPersonneParticipation
     585 405 100 4 0 0
-  active  classdiagram_ref 128514 // LiaisonServices
+  classdiagram_ref 128514 // LiaisonServices
     752 507 100 4 0 0
 end
 show_stereotypes
-selected class_ref 129410 // DepenseManager
+selected classview_ref 128130 // Chantier
 open
   classrelation_ref 131458 // <dependency>
 end
 end
+verbose

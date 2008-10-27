@@ -1,0 +1,71 @@
+a img {
+   border: none;
+}
+
+body {
+   margin: 0;
+   padding: 0;
+   background: white url( "../images/bannerRight.jpg" ) no-repeat top right;
+}
+
+#banner {
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 130px;
+   margin: 0;
+   padding: 0;
+   width: 90%;
+   z-index: 100;
+}
+
+#banner img {
+   float: left;
+   margin: 0;
+   padding: 0;
+}
+
+#banner h1 {
+   margin: 40px 0 0 200px;
+}
+
+#menu {
+   z-index: 90;
+   position: fixed !important;
+   position: absolute;
+   top: 0px;
+   left: 0;
+   width: 163px;
+}
+
+#menu img {
+   margin: 0 0 20px 0;
+}
+
+#menu li {
+   padding: 0.3em;
+}
+
+#menu div:last-child {
+   text-align: center;
+}
+
+.infoBanner {
+   width: 100%;
+   padding: 1em 0;
+   text-align: center;
+   border: dashed 2px green;
+   background-color: #f99;
+   font-weight: bold;
+}
+
+/*
+#noscript {}
+#ie6 {}
+#ie7 {}
+*/
+
+#content {
+   margin: 130px 0 0 163px;
+   padding: 1em;
+}
