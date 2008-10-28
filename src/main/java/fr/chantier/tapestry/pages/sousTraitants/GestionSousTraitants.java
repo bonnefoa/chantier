@@ -7,5 +7,5 @@ package fr.chantier.tapestry.pages.sousTraitants;
  * Time: 3:55:25 PM
  * To change this template use File | Settings | File Templates.
  */
-public class SousTraitants {
+public class GestionSousTraitants {
 }

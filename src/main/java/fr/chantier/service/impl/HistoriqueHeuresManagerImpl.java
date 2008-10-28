@@ -2,6 +2,7 @@ package fr.chantier.service.impl;
 
 import fr.chantier.dao.HistoriqueHeuresDAO;
 import fr.chantier.model.HistoriqueHeures;
+import fr.chantier.service.HistoriqueHeuresManager;
 
 /**
  * Created by IntelliJ IDEA.

@@ -1,5 +1,7 @@
 package fr.chantier.model;
 
+import org.apache.tapestry5.beaneditor.NonVisual;
+
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.sql.Timestamp;
@@ -17,7 +19,7 @@ import java.util.Collection;
 public class Commandes {
     private int commandId;
 
-    @Id
+    @Id    
     @Column(name = "command_id", nullable = false, length = 10)
     public int getCommandId() {
         return commandId;

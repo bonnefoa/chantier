@@ -1,5 +1,8 @@
 package fr.chantier.model;
 
+import org.apache.tapestry5.beaneditor.NonVisual;
+import org.apache.tapestry5.beaneditor.Validate;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -16,6 +19,7 @@ public class Clients {
     private int clientId;
 
     @Id
+    @NonVisual
     @Column(name = "client_id", nullable = false, length = 10)
     public int getClientId() {
         return clientId;
@@ -28,6 +32,7 @@ public class Clients {
     private String clientName;
 
     @Basic
+    @Validate("required")
     @Column(name = "client_name")
     public String getClientName() {
         return clientName;
