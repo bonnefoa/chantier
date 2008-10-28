@@ -1,0 +1,6 @@
+<t:template xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+      <h1>Bienvenue sur le site de commande de pizza</h1>
+
+      <p>Vous pourrer commandez vos rations de survies par l'intermédiaire de cette interface l33t</p>
+
+</t:template>
