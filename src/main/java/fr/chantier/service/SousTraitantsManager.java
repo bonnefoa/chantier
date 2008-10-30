@@ -29,4 +29,12 @@ public interface SousTraitantsManager extends GenericManager<SousTraitantsEntity
      * @return
      */
     Float getSumOfCostForCommande(SousTraitantsEntity sousTraitantsEntity, CommandesEntity commandesEntity);
+
+    /**
+     * Retourne la liste de sous-traitants participant a la commande
+     *
+     * @param commandesEntity
+     * @return
+     */
+    Collection<SousTraitantsEntity> findSousTraitantsForCommandes(CommandesEntity commandesEntity);
 }

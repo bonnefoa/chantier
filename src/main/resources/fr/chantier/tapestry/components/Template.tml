@@ -4,7 +4,7 @@
     <head>
         <title>Chantier</title>
         <link href="${asset:context:css/style.css}" rel="stylesheet" type="text/css" media="screen"/>
-        <link href="${asset:context:css/stylePrint.css}" rel="stylesheet" type="text/css" media="print"/>
+        <link href="${asset:context:css/print.css}" rel="stylesheet" type="text/css" media="print"/>
     </head>
     <body>
         <div id="Header">
@@ -45,8 +45,7 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-        
+        </div>        
         <t:body/>
     </body>
 

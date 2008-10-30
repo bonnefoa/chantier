@@ -17,4 +17,11 @@ public interface IntervenantsDAO extends GenericDAO<IntervenantsEntity, Integer>
 
     Collection<IntervenantsEntity> findAllExisting();
 
+    /**
+     * Recupere les intervenants pour la commande donnee
+     *
+     * @param commandesEntity
+     * @return
+     */
+    Collection<IntervenantsEntity> findIntervenantsForCommandes(CommandesEntity commandesEntity);
 }

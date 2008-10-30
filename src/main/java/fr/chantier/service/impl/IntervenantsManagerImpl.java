@@ -39,4 +39,8 @@ public class IntervenantsManagerImpl extends GenericHibernateManager<Intervenant
         }
         return res;
     }
+
+    public Collection<IntervenantsEntity> findIntervenantsForCommandes(CommandesEntity commandesEntity) {
+        return dao.findIntervenantsForCommandes(commandesEntity);
+    }
 }

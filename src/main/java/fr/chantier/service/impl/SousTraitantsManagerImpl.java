@@ -38,4 +38,8 @@ public class SousTraitantsManagerImpl extends GenericHibernateManager<SousTraita
         }
         return res;
     }
+
+    public Collection<SousTraitantsEntity> findSousTraitantsForCommandes(CommandesEntity commandesEntity) {
+        return dao.findSousTraitantsForCommandes(commandesEntity);
+    }
 }

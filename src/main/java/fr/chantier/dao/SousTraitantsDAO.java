@@ -17,4 +17,11 @@ public interface SousTraitantsDAO extends GenericDAO<SousTraitantsEntity, Intege
 
     Collection<SousTraitantsEntity> findAllExisting();
 
+    /**
+     * Retourne la liste des sous traitants participant a la commande
+     *
+     * @param commandesEntity
+     * @return
+     */
+    Collection<SousTraitantsEntity> findSousTraitantsForCommandes(CommandesEntity commandesEntity);
 }

@@ -4,6 +4,7 @@ import fr.chantier.service.*;
 import fr.chantier.service.impl.*;
 import fr.chantier.dao.*;
 import fr.chantier.dao.impl.*;
+import fr.chantier.tapestry.base.CookiePersistentField;
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.hibernate.HibernateTransactionDecorator;
 import org.apache.tapestry5.ioc.Configuration;
@@ -12,10 +13,7 @@ import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
 import org.apache.tapestry5.ioc.annotations.Local;
 import org.apache.tapestry5.ioc.annotations.Match;
-import org.apache.tapestry5.services.Request;
-import org.apache.tapestry5.services.RequestFilter;
-import org.apache.tapestry5.services.RequestHandler;
-import org.apache.tapestry5.services.Response;
+import org.apache.tapestry5.services.*;
 import org.slf4j.Logger;
 
 import java.io.IOException;
@@ -144,4 +142,11 @@ public class AppModule {
 
         configuration.add("Timing", filter);
     }
+
+    public void contributePersistentFieldManager(MappedConfiguration<String, PersistentFieldStrategy> configuration,
+                                                 RequestGlobals requestGlobals, Request request) {
+        configuration.add(CookiePersistentField.COOKIE, new CookiePersistentField(requestGlobals, request, CookiePersistentField.COOKIE));
+        configuration.add(CookiePersistentField.FLASHCOOKIE, new CookiePersistentField(requestGlobals, request, CookiePersistentField.FLASHCOOKIE));
+    }
+
 }

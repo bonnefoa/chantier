@@ -122,7 +122,7 @@ public class CommandesEntity implements Serializable {
 
     private Collection<HistoriqueHeuresEntity> historiqueHeuresesByCommandId;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "commandesByCommandId")
+    @OneToMany(mappedBy = "commandesByCommandId")
     public Collection<HistoriqueHeuresEntity> getHistoriqueHeuresesByCommandId() {
         return historiqueHeuresesByCommandId;
     }

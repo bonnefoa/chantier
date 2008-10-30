@@ -1,17 +1,18 @@
 package fr.chantier.tapestry.pages.commandes;
 
 import fr.chantier.model.CommandesEntity;
+import fr.chantier.model.HistoriqueHeuresEntity;
+import fr.chantier.model.HistoriqueSommeEntity;
 import fr.chantier.service.CommandesManager;
-
-import java.util.Collection;
-import java.util.ArrayList;
-
+import fr.chantier.service.HistoriqueHeuresManager;
+import fr.chantier.service.HistoriqueSommeManager;
+import fr.chantier.tapestry.components.commandes.HeaderCommand;
+import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Property;
-import org.apache.tapestry5.annotations.OnEvent;
-import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.SetupRender;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.apache.tapestry5.corelib.components.Form;
+
+import java.util.Collection;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,14 +26,11 @@ public class SelectionCommandes {
     @Inject
     private CommandesManager commandesManager;
 
-    @Persist
-    @Property(write = false)
-    private Collection<CommandesEntity> listeCommandes;
+    @Inject
+    private HistoriqueHeuresManager historiqueHeuresManager;
 
-    /**
-     * Liste des entites a supprimer
-     */
-    private Collection<CommandesEntity> listeCommandesToRemove;
+    @Inject
+    private HistoriqueSommeManager historiqueSommeManager;
 
     @Property
     private CommandesEntity commandesEntity;
@@ -40,11 +38,20 @@ public class SelectionCommandes {
     private Float tempRealCost;
 
     /**
+     * Composant de recherche
+     */
+    @Component
+    private HeaderCommand headerCommand;
+
+
+    @Property(write = false)
+    private boolean suppressionChecked;
+
+    /**
      * Recuperation de la liste de commande au chargement
      */
     @SetupRender
     private void onSetupRender() {
-        listeCommandes = commandesManager.findAll();
     }
 
     public Float getRealCost() {
@@ -60,43 +67,34 @@ public class SelectionCommandes {
     }
 
     /**
-     * Preparation du submit
-     */
-    @OnEvent(value = Form.PREPARE_FOR_SUBMIT, component = "modifierCommandesForm")
-    private void onPrepareForSubmit() {
-        listeCommandesToRemove = new ArrayList<CommandesEntity>();
-    }
-
-    /**
-     * Decocher la suppression de la commande par defaut
-     *
-     * @return Faux
-     */
-    public boolean getSuppressionChecked() {
-        return false;
-    }
-
-    /**
      * Remplir la liste pour la suppression
      *
      * @param ckecked
      */
     public void setSuppressionChecked(boolean ckecked) {
         if (ckecked) {
-            listeCommandesToRemove.add(commandesEntity);
+            commandesEntity = commandesManager.findById(commandesEntity.getCommandId(), false);
+            for (HistoriqueHeuresEntity historiqueHeuresEntity : commandesEntity.getHistoriqueHeuresesByCommandId()) {
+                historiqueHeuresManager.makeTransient(historiqueHeuresEntity);
+            }
+            for (HistoriqueSommeEntity historiqueSommeEntity : commandesEntity.getHistoriqueSommesByCommandId()) {
+                historiqueSommeManager.makeTransient(historiqueSommeEntity);
+            }
+            commandesManager.makeTransient(commandesEntity);
         }
     }
 
-    /**
-     * Traitement du formulaire
-     */
-    @OnEvent(component = "modifierCommandesForm", value = Form.SUCCESS)
-    private void onSucces() {
-        for (CommandesEntity listeCommande : listeCommandes) {
-            commandesManager.makePersistent(listeCommande);
+    public void setFinaliserChecked(boolean checked) {
+        if (checked != commandesEntity.isFinalise()) {
+            commandesManager.finaliserCommande(commandesEntity, checked);
         }
-        for (CommandesEntity entity : listeCommandesToRemove) {
-            commandesManager.makeTransient(entity);
-        }
+    }
+
+    public boolean isFinaliserChecked() {
+        return commandesEntity.isFinalise();
+    }
+
+    public Collection<CommandesEntity> getListeCommandes() {
+        return headerCommand.getCommandesEntityCollection();
     }
 }

@@ -20,7 +20,7 @@
             </td>
 
             <td class="commande_histo_row">
-                <t:outputnumber value="historiqueSommes.historiqueSomme"/>
+                <t:OutputCurrency value="historiqueSommes.historiqueSomme"/>
             </td>
             <t:submitnotifier>
                 <td class="commande_histo_row">

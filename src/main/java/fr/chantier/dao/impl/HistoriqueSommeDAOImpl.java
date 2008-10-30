@@ -5,9 +5,11 @@ import fr.chantier.dao.*;
 import org.hibernate.Session;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.Order;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,6 +28,7 @@ public class HistoriqueSommeDAOImpl extends GenericHibernateDAO<HistoriqueSommeE
         Criteria crit = getSession().createCriteria(getPersistentClass());
         crit.add(Restrictions.eq("sousTraitantsByStId.stId", sousTraitantsEntity.getStId()));
         crit.add(Restrictions.eq("commandesByCommandId.commandId", commandesEntity.getCommandId()));
-        return new HashSet<HistoriqueSommeEntity>(crit.list());
+        crit.addOrder(Order.asc("historiqueDate"));
+        return new LinkedHashSet<HistoriqueSommeEntity>(crit.list());
     }
 }

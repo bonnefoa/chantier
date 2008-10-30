@@ -1,5 +1,6 @@
 package fr.chantier.tapestry.pages.commandes;
 
+import fr.chantier.enumeration.Mois;
 import fr.chantier.model.*;
 import fr.chantier.service.*;
 import org.apache.tapestry5.ComponentResources;
@@ -105,6 +106,12 @@ public class ModificationCommandes {
     @Property
     private Float sommeSelected;
 
+    @Property
+    private Mois mois;
+
+    @Property
+    private Integer annee;
+
     /**
      * Model pour le select
      */
@@ -132,6 +139,7 @@ public class ModificationCommandes {
      */
     private Collection<HistoriqueSommeEntity> listSommesToPersist;
 
+    private Calendar cal;
 
     /**
      * Initialisation du model
@@ -142,6 +150,7 @@ public class ModificationCommandes {
         beanModel.add("client", null);
         beanModel.add("historiqueHeures", null);
         beanModel.add("historiqueSommes", null);
+        beanModel.reorder("client", "commandDevis", "commandLibelle", "commandDate", "historiqueHeures", "historiqueSommes");
     }
 
     /**
@@ -162,11 +171,17 @@ public class ModificationCommandes {
         listeClients = clientsManager.findAllExisting();
         listeIntervenants = intervenantsManager.findAllExisting();
         listSousTraitants = sousTraitantsManager.findAllExisting();
+        cal = new GregorianCalendar();
         if (idCommande != null) {
             isModification = true;
             commandesEntity = commandesManager.findById(idCommande, false);
             idClient = commandesEntity.getClientsByClientId().getClientId();
+            cal.setTime(commandesEntity.getCommandDate());
+        } else {
+            commandesEntity = null;
         }
+        annee = cal.get(Calendar.YEAR);
+        mois = Mois.lookup(cal.get(Calendar.MONTH));
         this.initModel();
     }
 
@@ -181,6 +196,9 @@ public class ModificationCommandes {
         }
     }
 
+    /**
+     * Prepare les listes temporaires
+     */
     @OnEvent(component = "commandesForm", value = Form.PREPARE_FOR_SUBMIT)
     private void onPrepareforSubmit() {
         listHeureToPersist = new ArrayList<HistoriqueHeuresEntity>();
@@ -192,6 +210,13 @@ public class ModificationCommandes {
      */
     @OnEvent(component = "commandesForm", value = Form.SUCCESS)
     private Object onSuccessFromCommandesForm() {
+        if (commandesEntity.getCommandDevis() == null)
+            commandesEntity.setCommandDevis(0.f);
+        cal = new GregorianCalendar();
+        cal.set(Calendar.DAY_OF_MONTH, 2);
+        cal.set(Calendar.MONTH, mois.getI());
+        cal.set(Calendar.YEAR, annee);
+        commandesEntity.setCommandDate(cal.getTime());
         ClientsEntity clientsEntity = clientsManager.findById(idClient, false);
         commandesEntity.setClientsByClientId(clientsEntity);
         commandesEntity = commandesManager.makePersistent(commandesEntity);
@@ -265,7 +290,9 @@ public class ModificationCommandes {
 
 
     /**
-     * Remplissage de la zone au click
+     * Toggle l'affichage de l'historique des heures
+     *
+     * @return la page de modification
      */
     @OnEvent(value = "action", component = "HistoriqueHeuresShow")
     private Object onHistoriqueHeuresShow() {
@@ -273,12 +300,22 @@ public class ModificationCommandes {
         return resources.createPageLink(ModificationCommandes.class, false, commandesEntity.getCommandId());
     }
 
+    /**
+     * Toggle l'affichage de l'historique des sommes
+     *
+     * @return la page de modification
+     */
     @OnEvent(value = "action", component = "HistoriqueSommesShow")
     private Object onHistoriqueSomme() {
         isDisplaySommes = !isDisplaySommes;
         return resources.createPageLink(ModificationCommandes.class, false, commandesEntity.getCommandId());
     }
 
+    /**
+     * Libelle pour le lien de toggle de l'historique
+     *
+     * @return Label pour le lien
+     */
     public String getLabelLienHeure() {
         if (isDisplayHeure) {
             return "Cacher l'historique des heures";
@@ -286,11 +323,37 @@ public class ModificationCommandes {
         return "Afficher l'historique des heures";
     }
 
+    /**
+     * libelle pour le lien de toggle de l'historique des sommes
+     *
+     * @return
+     */
     public String getLabelLienSomme() {
         if (isDisplaySommes) {
             return "Cacher l'historique des sommes";
         }
         return "Afficher l'historique des sommes";
+    }
+
+    /**
+     * Met la case vide dans le cas d'un devis a 0
+     *
+     * @return
+     */
+    public Float getCommandDevis() {
+        if (commandesEntity != null && commandesEntity.getCommandDevis() != null && commandesEntity.getCommandDevis() > 0) {
+            return commandesEntity.getCommandDevis();
+        }
+        return null;
+    }
+
+    /**
+     * Applique les modifications du devis
+     *
+     * @param inDevis
+     */
+    public void setCommandDevis(Float inDevis) {
+        commandesEntity.setCommandDevis(inDevis);
     }
 
 }

@@ -3,6 +3,14 @@ p {
 
 }
 
+#Header {
+    display: none;
+}
+
+.searchBarre {
+    display: none;
+}
+
 table {
     margin: auto;
     border-collapse: collapse;
@@ -23,7 +31,7 @@ body {
     margin-bottom: 2px; /*  background-image: url("images/fond.png");  */
 }
 
-.intervenants_row, .head_table_intervenants, .clients_row, .sous_traitants_row, .sous_traitants_row_suppr, .sub_title, .commande_histo_head_row, .caption_histo, .head_row, .commande_row, .row_title, .row_histo, label, p, caption, th ,.text_align{
+.intervenants_row, .head_table_intervenants, .clients_row, .sous_traitants_row, .sous_traitants_row_suppr, .sub_title, .commande_histo_head_row, .caption_histo, .head_row, .commande_row, .row_title, .row_histo, label, p, caption, th, .text_align {
     text-align: center;
 }
 

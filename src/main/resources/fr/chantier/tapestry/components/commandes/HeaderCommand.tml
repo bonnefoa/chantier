@@ -1,0 +1,28 @@
+<div class="searchBarre" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <br/>
+    <form t:type="form" t:id="classementForm">
+        <t:label t:for="selectTypeClassement">Classer par</t:label>
+        <select t:blankoption="never" t:id="selectTypeClassement" t:type="select" t:value="typeClassement"/>
+        de manière
+        <select t:blankoption="never" t:type="select" t:value="typeOrdonnancement"/>
+        les commandes
+        <select t:blankoption="never" t:type="select" t:value="typeFinalise"/>
+        <br/>
+        <t:label t:for="activateDate">Activer le classement par date</t:label>
+        <t:checkbox t:id="activateDate" t:value="activateDate" t:mixins="TriggerFragment" fragment="choixDate"/>
+        <t:formfragment t:id="choixDate" visible="activateDate">
+            <t:select t:blankoption="never" t:value="mois" t:id="choixMois"/>
+            <t:textfield t:value="annee" t:id="choixAnnee"/>
+        </t:formfragment>
+        <p>
+            <t:submit value="Changer les options de classements"/>
+        </p>
+    </form>
+    <br/>
+    <form t:type="form" t:id="rechercheClientForm">
+        <t:label t:for="rechercheClient">Rechercher par un numéro de commande ou par le nom d'un client:</t:label>
+        <t:textfield t:id="rechercheClient" t:value="inputSearch" t:mixins="autocomplete"/>
+        <t:submit t:value="Cherchez"/>
+    </form>
+    <br/>
+</div>

@@ -1,4 +1,5 @@
 <t:template xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <div t:type="commandes/headerCommand" />
     <form t:type="form" t:id="modifierCommandesForm">
         <table class="head_table">
             <thead>
@@ -35,15 +36,15 @@
                             CA HT =
                         </td>
                         <td class="row_number">
-                            <t:outputNumber value="commandesEntity.commandDevis"/>
+                            <t:OutputCurrency value="commandesEntity.commandDevis"/>
                         </td>
                         <td class="little_operator">-</td>
                         <td class="row_number">
-                            <t:outputNumber value="realCost"/>
+                            <t:OutputCurrency value="realCost"/>
                         </td>
                         <td class="little_operator">=</td>
                         <td class="row_number">
-                            <t:outputNumber value="result"/>
+                            <t:OutputCurrency value="result"/>
                         </td>
                         <td class="row_number">
                             <a t:type="pagelink" t:page="commandes/ModificationCommandes"
@@ -53,7 +54,7 @@
                         </td>
                         <td class="row_number">
                             <label t:type="label" t:for="finaliseCheckbox">Finaliser la commande:</label>
-                            <input t:type="checkbox" t:id="finaliseCheckbox" t:value="commandesEntity.finalise"/>
+                            <input t:type="checkbox" t:id="finaliseCheckbox" t:value="finaliserChecked"/>
                         </td>
                         <td class="row_number">
                             <label t:type="label" t:for="suppressionCheckbox">Supprimer la commande:</label>

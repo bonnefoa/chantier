@@ -1,9 +1,17 @@
 package fr.chantier.dao.impl;
 
+import fr.chantier.dao.CommandesDAO;
 import fr.chantier.model.ClientsEntity;
 import fr.chantier.model.CommandesEntity;
-import fr.chantier.dao.CommandesDAO;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.SimpleExpression;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.LinkedHashSet;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,4 +26,20 @@ public class CommandesDAOImpl extends GenericHibernateDAO<CommandesEntity, Integ
         super(session);
     }
 
+    public Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, SimpleExpression simpleExpression, Date dateBefore, Date dateAfter) {
+        Criteria crit = getSession().createCriteria(getPersistentClass());
+        if(clientsEntity != null){
+            crit.add(Restrictions.eq("clientsByClientId.clientId", clientsEntity.getClientId()));
+        }
+        if(order != null){
+            crit.addOrder(order);
+        }
+        if(simpleExpression != null){
+            crit.add(simpleExpression);
+        }
+        if(dateBefore != null && dateAfter != null){
+            crit.add(Restrictions.between("commandDate",dateBefore,dateAfter));
+        }
+        return new LinkedHashSet(crit.list());
+    }
 }

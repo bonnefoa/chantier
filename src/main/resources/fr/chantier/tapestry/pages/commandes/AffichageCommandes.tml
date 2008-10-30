@@ -1,6 +1,141 @@
 <t:template xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
-      <h1>Bienvenue sur le site de commande de pizza</h1>
+    <div t:type="commandes/headerCommand"/>
+    <t:loop t:source="listCommandes" t:value="commandesEntity">
+        <table class="head_table_display">
+            <tr class="first_line_display">
+                <td class="display_line_1">
+                    <span class="display_text">Client :</span>
+                </td>
+                <td class="display_line_2">
+                    <span class="display_text">${commandesEntity.clientsByClientId.clientName}</span>
+                </td>
+                <td class="display_line_3">
+                    <span class="display_text">CA HT =</span>
+                </td>
+                <td class="display_line_4">
+                    <t:OutputCurrency value="commandesEntity.commandDevis"/>
+                </td>
+                <td class="little_operator">-</td>
+                <td class="display_line_8">
+                    <t:OutputCurrency t:value="realCost"/>
+                </td>
+                <td class="little_operator">=</td>
+                <td class="display_line_5">
+                    <t:OutputCurrency t:value="result"/>
+                </td>
+                <td class="display_line_6">
+                    <span class="display_text">MOIS FACT</span>
+                </td>
+                <td class="display_line_7">
+                    <div t:type="commons/DateFormat" t:value="commandesEntity.commandDate" t:pattern="literal:MM/yy"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="10">
+                    ${commandesEntity.commandLibelle}
+                </td>
+            </tr>
+            <!-- Cadre bas gauche -->
+            <tr>
+                <td class="display_bottom" colspan="6">
+                    <table class="table_inside_display">
+                        <tr t:type="loop" t:source="listIntervenants" t:value="intervenantsEntity">
+                            <td class="display_heures">${intervenantsEntity.interName}
+                                <t:outputraw t:value="listHeures"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="display_sommes" t:type="loop" t:source="listSousTraitants"
+                                t:value="sousTraitantsEntity">
+                                ${sousTraitantsEntity.stName} ${listSommes}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
 
-      <p>Vous pourrer commandez vos rations de survies par l'intermédiaire de cette interface l33t</p>
+                <!-- Cadre bas droite -->
 
+                <td class="display_bottom_right" colspan="4">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="display_sommes_heures">
+                                    <t:output t:format="decimalFormat" t:value="sumOfHours"/>
+                                </span>
+                                *
+                                <t:output t:format="decimalFormat" t:value="coefficientEntity.interCoef"/>=
+                                <t:output t:format="decimalFormat" t:value="CostOfIntervenants"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="display_st_sum">
+                                    <t:output t:format="decimalFormat" t:value="sumOfCost"/>
+                                </span>
+                                *
+                                <t:output t:format="decimalFormat" t:value="coefficientEntity.stCoef"/>=
+                                <t:output t:format="decimalFormat" t:value="CostOfSousTraitants"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Total :
+                                <t:output t:format="decimalFormat" t:value="realCost"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <t:output t:format="decimalFormat" t:value="commandesEntity.commandDevis"/>
+                                -
+                                <t:output t:format="decimalFormat" t:value="realCost"/>
+                                =
+                                <span class="${displayResult}">
+                                    <t:output t:format="decimalFormat" t:value="result"/>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </t:loop>
+    <div>
+        <br/>
+    </div>
+    <table class="head_table">
+        <caption>
+            Récapitulatif
+        </caption>
+        <thead>
+            <tr>
+                <th class="row_align">
+                    Somme commandes
+                </th>
+                <th class="row_align">
+                    Somme coût réel
+                </th>
+                <th class="row_align">
+                    Résultat
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="row_align">
+                    <span class="display_recap">
+                        <t:outputCurrency value="sumDevis"/>
+                    </span>
+                </td>
+                <td class="row_align">
+                    <span class="display_recap">
+                        <t:outputCurrency value="sumRealCost"/>
+                    </span>
+                </td>
+                <td class="row_align">
+                    <span class="${recapColor}">
+                        <t:outputCurrency value="sumResult"/>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </t:template>

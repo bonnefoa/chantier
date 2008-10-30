@@ -5,9 +5,11 @@ import fr.chantier.dao.HistoriqueHeuresDAO;
 import org.hibernate.Session;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.Order;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,6 +28,7 @@ public class HistoriqueHeuresDAOImpl extends GenericHibernateDAO<HistoriqueHeure
         Criteria crit = getSession().createCriteria(getPersistentClass());
         crit.add(Restrictions.eq("intervenantsByInterId.interId", intervenantsEntity.getInterId()));
         crit.add(Restrictions.eq("commandesByCommandId.commandId", commandesEntity.getCommandId()));
-        return new HashSet<HistoriqueHeuresEntity> (crit.list());
+        crit.addOrder(Order.asc("historiqueDate"));
+        return new LinkedHashSet<HistoriqueHeuresEntity>(crit.list());
     }
 }

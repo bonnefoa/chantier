@@ -2,6 +2,7 @@ package fr.chantier.dao.impl;
 
 import fr.chantier.dao.IntervenantsDAO;
 import fr.chantier.model.IntervenantsEntity;
+import fr.chantier.model.CommandesEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -9,6 +10,7 @@ import org.hibernate.criterion.Order;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 /**
  * Created by IntelliJ IDEA.
@@ -27,7 +29,14 @@ public class IntervenantsDAOImpl extends GenericHibernateDAO<IntervenantsEntity,
         Criteria crit = getSession().createCriteria(getPersistentClass());
         crit.add(Restrictions.eq("interOld", false));
         crit.addOrder(Order.asc("interOrdre"));
-        return new HashSet<IntervenantsEntity>(crit.list());
+        return new LinkedHashSet<IntervenantsEntity>(crit.list());
+    }
+
+    public Collection<IntervenantsEntity> findIntervenantsForCommandes(CommandesEntity commandesEntity) {
+        Criteria crit = getSession().createCriteria(getPersistentClass());
+        crit.createCriteria("historiqueHeuresesByInterId").add(Restrictions.eq("commandesByCommandId.commandId", commandesEntity.getCommandId()));
+        crit.addOrder(Order.asc("interOrdre"));
+        return new LinkedHashSet<IntervenantsEntity>(crit.list());
     }
 
 }

@@ -1,12 +1,14 @@
 package fr.chantier.service.impl;
 
 import fr.chantier.dao.CommandesDAO;
-import fr.chantier.model.CoefficientEntity;
-import fr.chantier.model.CommandesEntity;
-import fr.chantier.model.HistoriqueHeuresEntity;
-import fr.chantier.model.HistoriqueSommeEntity;
+import fr.chantier.model.*;
 import fr.chantier.service.CoefficientManager;
 import fr.chantier.service.CommandesManager;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.SimpleExpression;
+
+import java.util.Collection;
+import java.util.Date;
 
 /**
  * Created by IntelliJ IDEA.
@@ -86,5 +88,34 @@ public class CommandesManagerImpl extends GenericHibernateManager<CommandesEntit
 
     public Float getResult(CommandesEntity commandesEntity) {
         return commandesEntity.getCommandDevis() - this.getRealCost(commandesEntity);
+    }
+
+    public Float getSumDevis(Collection<CommandesEntity> commandesEntityCollection) {
+        Float res = 0.f;
+        for (CommandesEntity commandesEntity : commandesEntityCollection) {
+            res += commandesEntity.getCommandDevis();
+        }
+        return res;
+    }
+
+    public Float getSumRealCost(Collection<CommandesEntity> commandesEntityCollection) {
+        Float res = 0.f;
+        for (CommandesEntity commandesEntity : commandesEntityCollection) {
+            res += this.getRealCost(commandesEntity);
+        }
+        return res;
+    }
+
+    public Float getSumResult(Collection<CommandesEntity> commandesEntityCollection) {
+        Float res = 0.f;
+        for (CommandesEntity commandesEntity : commandesEntityCollection) {
+            res += this.getResult(commandesEntity);
+        }
+        return res;
+    }
+
+
+    public Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, SimpleExpression typeFinalise, Date dateBefore, Date dateAfter) {
+        return dao.findByCriterions(clientsEntity, order, typeFinalise, dateBefore, dateAfter);
     }
 }

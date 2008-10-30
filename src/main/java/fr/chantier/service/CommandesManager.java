@@ -5,6 +5,11 @@ import fr.chantier.model.ClientsEntity;
 import fr.chantier.model.CommandesEntity;
 import fr.chantier.model.HistoriqueHeuresEntity;
 import fr.chantier.model.HistoriqueSommeEntity;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.SimpleExpression;
+
+import java.util.Collection;
+import java.util.Date;
 
 /**
  * Created by IntelliJ IDEA.
@@ -107,4 +112,39 @@ public interface CommandesManager extends GenericManager<CommandesEntity, Intege
      * @return
      */
     Float getResult(CommandesEntity commandesEntity);
+
+    /**
+     * Recupere la somme des devis de la liste de commande
+     *
+     * @param commandesEntityCollection
+     * @return
+     */
+    Float getSumDevis(Collection<CommandesEntity> commandesEntityCollection);
+
+    /**
+     * Recupere la somme des couts reels de ces commandes
+     *
+     * @param commandesEntityCollection
+     * @return
+     */
+    Float getSumRealCost(Collection<CommandesEntity> commandesEntityCollection);
+
+    /**
+     * Recupere la somme des resultat de ces commandes
+     *
+     * @param commandesEntityCollection
+     * @return
+     */
+    Float getSumResult(Collection<CommandesEntity> commandesEntityCollection);
+
+    /**
+     * Recupere la liste des commandes correspondant a la recherche donne
+     *
+     * @param order
+     * @param typeFinalise
+     * @param dateBefore
+     * @param dateAfter
+     * @return
+     */
+    Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, SimpleExpression typeFinalise, Date dateBefore, Date dateAfter);
 }

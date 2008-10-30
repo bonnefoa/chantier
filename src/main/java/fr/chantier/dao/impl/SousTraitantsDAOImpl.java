@@ -9,6 +9,7 @@ import org.hibernate.criterion.Order;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 /**
  * Created by IntelliJ IDEA.
@@ -27,6 +28,14 @@ public class SousTraitantsDAOImpl extends GenericHibernateDAO<SousTraitantsEntit
         Criteria crit = getSession().createCriteria(getPersistentClass());
         crit.add(Restrictions.eq("stOld", false));
         crit.addOrder(Order.asc("stName"));
-        return new HashSet<SousTraitantsEntity>(crit.list());
+        return new LinkedHashSet<SousTraitantsEntity>(crit.list());
+    }
+
+    public Collection<SousTraitantsEntity> findSousTraitantsForCommandes(CommandesEntity commandesEntity) {
+        Criteria crit = getSession().createCriteria(getPersistentClass());
+        crit.add(Restrictions.eq("stOld", false));
+        crit.createCriteria("historiqueSommesByStId").add(Restrictions.eq("commandesByCommandId.commandId", commandesEntity.getCommandId()));
+        crit.addOrder(Order.asc("stName"));
+        return new LinkedHashSet<SousTraitantsEntity>(crit.list());
     }
 }

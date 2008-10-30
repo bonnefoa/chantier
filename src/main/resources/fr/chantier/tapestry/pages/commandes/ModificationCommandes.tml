@@ -1,5 +1,5 @@
 <t:template xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
-    <h1>
+    <h1 class="text_align">
         <t:if t:test="isModification">
             Modification de la commande n°${commandesEntity.commandId}
             <t:parameter name="else">
@@ -7,18 +7,24 @@
             </t:parameter>
         </t:if>
     </h1>
-    <h2>
+    <h2 class="text_align">
         <a t:type="actionlink" t:id="HistoriqueHeuresShow">${labelLienHeure}</a>
     </h2>
-    <h2>
+    <h2 class="text_align">
         <a t:type="actionlink" t:id="HistoriqueSommesShow">${labelLienSomme}</a>
     </h2>
-
     <t:beaneditform t:object="commandesEntity" t:id="commandesForm"
                     submitlabel="Valider" t:model="beanModel">
-        <t:parameter name="commandDateCell">
-            <t:label t:for="date"/>
-            <t:datefield t:value="commandesEntity.commandDate" t:id="date"/>
+        <t:parameter name="commandDevis">
+            <t:label t:for="commandDevis">
+                Entrez le devis initial
+            </t:label>
+            <t:textfield t:id="commandDevis" t:value="commandDevis"/> €
+        </t:parameter>
+        <t:parameter name="commandDate">
+            <t:label t:for="mois">Mois de facturation</t:label>
+            <t:select t:id="mois" t:blankoption="never" t:value="mois"/>
+            <t:textfield t:id="annee" t:value="annee" t:validate="regexp"/>
         </t:parameter>
         <t:parameter name="client">
             <div class="t-beaneditor-row">
@@ -30,6 +36,7 @@
             </div>
         </t:parameter>
         <t:parameter name="historiqueHeures">
+            <t:submit t:value="Valider"/>
             <table>
                 <caption>Intervenants</caption>
                 <thead>
@@ -88,7 +95,7 @@
                             </td>
 
                             <td class="commande_row">
-                                <t:outputNumber value="sousTraitantsTotalCost"/>
+                                <t:OutputCurrency value="sousTraitantsTotalCost"/>
                             </td>
                             <t:submitnotifier t:id="ajoutSomme">
                                 <td class="commande_row">
@@ -122,6 +129,4 @@
             </td>
         </tr>
     </t:block>
-
-
 </t:template>

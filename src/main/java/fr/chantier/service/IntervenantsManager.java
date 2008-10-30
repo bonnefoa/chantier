@@ -28,4 +28,11 @@ public interface IntervenantsManager extends GenericManager<IntervenantsEntity, 
      * @return
      */
     Float getSumOfHoursForCommand(IntervenantsEntity intervenantsEntity, CommandesEntity commandesEntity);
+
+    /**
+     * Recupere les intervenants pour la commande donnee
+     * @param commandesEntity
+     * @return
+     */
+    Collection<IntervenantsEntity> findIntervenantsForCommandes(CommandesEntity commandesEntity);
 }
