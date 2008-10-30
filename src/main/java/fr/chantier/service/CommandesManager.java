@@ -1,11 +1,10 @@
 package fr.chantier.service;
 
-import fr.chantier.model.Clients;
-import fr.chantier.model.Coefficient;
-import fr.chantier.model.Commandes;
-import fr.chantier.dao.ClientsDAO;
-import fr.chantier.dao.CoefficientDAO;
 import fr.chantier.dao.CommandesDAO;
+import fr.chantier.model.ClientsEntity;
+import fr.chantier.model.CommandesEntity;
+import fr.chantier.model.HistoriqueHeuresEntity;
+import fr.chantier.model.HistoriqueSommeEntity;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,5 +13,98 @@ import fr.chantier.dao.CommandesDAO;
  * Time: 6:07:51 PM
  * To change this template use File | Settings | File Templates.
  */
-public interface CommandesManager extends GenericManager<Commandes, Integer, CommandesDAO> {
+public interface CommandesManager extends GenericManager<CommandesEntity, Integer, CommandesDAO> {
+
+    /**
+     * Ajoute une heure travaillee a la commande
+     *
+     * @param historiqueHeuresEntity Heure travaillee
+     * @param commandesEntity        Commande concernee
+     * @return
+     */
+    CommandesEntity addHistoriqueHeuresToCommandes(HistoriqueHeuresEntity historiqueHeuresEntity, CommandesEntity commandesEntity);
+
+    /**
+     * Retire une heure de la commande
+     *
+     * @param historiqueHeuresEntity
+     * @param commandesEntity
+     * @return
+     */
+    CommandesEntity removeHistoriqueHeuresToCommandes(HistoriqueHeuresEntity historiqueHeuresEntity, CommandesEntity commandesEntity);
+
+    /**
+     * Ajoute une somme affecte a un sous-traitants
+     *
+     * @param historiqueSommeEntity Somme affectee
+     * @param commandesEntity       Commande concernee
+     * @return La commande persiste
+     */
+    CommandesEntity addHistoriqueSommeToCommandes(HistoriqueSommeEntity historiqueSommeEntity, CommandesEntity commandesEntity);
+
+    /**
+     * Retire une somme de la commande
+     *
+     * @param historiqueSommeEntity Somme affectee
+     * @param commandesEntity       Commande concernee
+     * @return La commande persiste
+     */
+    CommandesEntity removeHistoriqueSommeToCommandes(HistoriqueSommeEntity historiqueSommeEntity, CommandesEntity commandesEntity);
+
+    /**
+     * Recupere la somme des heures pour la commande donnee
+     *
+     * @param commandesEntity Commande a traiter
+     * @return Somme des heures
+     */
+    Float getSumOfHoursByCommandes(CommandesEntity commandesEntity);
+
+    /**
+     * Recupere la somme des couts de sous-traitants pour la commande donnee
+     *
+     * @param commandesEntity Commande a traiter
+     * @return Somme des couts des sous-traitants
+     */
+    Float getSumOfCostByCommandes(CommandesEntity commandesEntity);
+
+    /**
+     * Recupere le cout total des intervenants
+     *
+     * @param commandesEntity
+     * @return
+     */
+    Float getCostOfIntervenants(CommandesEntity commandesEntity);
+
+    /**
+     * Recupere le cout totat des sous-traitants
+     *
+     * @param commandesEntity
+     * @return
+     */
+    Float getCostOfSousTraitants(CommandesEntity commandesEntity);
+
+    /**
+     * Finalise la commande selon l'etat du boolean
+     *
+     * @param commandesEntity Commande a traiter
+     * @param finaliser       Finaliser la commande ou non
+     * @return Commande persiste
+     */
+    CommandesEntity finaliserCommande(CommandesEntity commandesEntity, boolean finaliser);
+
+    /**
+     * Recupere le cout reel de la commande
+     *
+     * @param commandesEntity
+     * @return
+     */
+    Float getRealCost(CommandesEntity commandesEntity);
+
+    /**
+     * Recupere le resultat final
+     *
+     * @param commandesEntity
+     * @return
+     */
+    Float getResult(CommandesEntity commandesEntity);
 }

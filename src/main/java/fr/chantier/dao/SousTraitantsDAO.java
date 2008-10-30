@@ -1,6 +1,10 @@
 package fr.chantier.dao;
 
-import fr.chantier.model.SousTraitants;
+import fr.chantier.model.SousTraitantsEntity;
+import fr.chantier.model.ClientsEntity;
+import fr.chantier.model.CommandesEntity;
+
+import java.util.Collection;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,5 +13,8 @@ import fr.chantier.model.SousTraitants;
  * Time: 5:41:00 PM
  * To change this template use File | Settings | File Templates.
  */
-public interface SousTraitantsDAO extends GenericDAO<SousTraitants, Integer> {
+public interface SousTraitantsDAO extends GenericDAO<SousTraitantsEntity, Integer> {
+
+    Collection<SousTraitantsEntity> findAllExisting();
+
 }

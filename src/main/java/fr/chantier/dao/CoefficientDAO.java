@@ -1,6 +1,6 @@
 package fr.chantier.dao;
 
-import fr.chantier.model.Coefficient;
+import fr.chantier.model.CoefficientEntity;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,5 +9,7 @@ import fr.chantier.model.Coefficient;
  * Time: 5:39:21 PM
  * To change this template use File | Settings | File Templates.
  */
-public interface CoefficientDAO extends GenericDAO<Coefficient,Integer>{
+public interface CoefficientDAO extends GenericDAO<CoefficientEntity, Integer> {
+
+    CoefficientEntity findCurrentCoefficient();
 }

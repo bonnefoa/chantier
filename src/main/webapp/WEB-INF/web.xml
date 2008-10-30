@@ -19,7 +19,7 @@
         PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
-   <display-name>Gestion des pizza du reZZo</display-name>
+   <display-name>Chantier</display-name>
    <context-param>
       <!-- The only significant configuration for Tapestry 5, this informs Tapestry
 of where to look for pages, components and mixins. -->
@@ -30,10 +30,6 @@ of where to look for pages, components and mixins. -->
       <filter-name>app</filter-name>
       <filter-class>org.apache.tapestry5.TapestryFilter</filter-class>
    </filter>
-   <!--<filter-mapping>-->
-      <!--<filter-name>dhcp</filter-name>-->
-      <!--<url-pattern>/*</url-pattern>-->
-   <!--</filter-mapping>-->
     <filter-mapping>
       <filter-name>app</filter-name>
       <url-pattern>/*</url-pattern>

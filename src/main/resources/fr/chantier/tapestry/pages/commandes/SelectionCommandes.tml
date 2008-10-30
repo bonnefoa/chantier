@@ -1,0 +1,73 @@
+<t:template xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <form t:type="form" t:id="modifierCommandesForm">
+        <table class="head_table">
+            <thead>
+                <tr>
+                    <th colspan="13" align="center">
+                        <input t:type="submit" t:value="Valider"/>
+                    </th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th colspan="13" align="center">
+                        <input t:type="submit" t:value="Valider"/>
+                    </th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <!-- BEGIN display -->
+                <t:loop t:source="listeCommandes" t:value="commandesEntity">
+                    <tr class="display_line_top">
+                        <td class="display_1">
+                            Numéro de commande :
+                        </td>
+                        <td class="display_2">
+                            <span class="display_text">${commandesEntity.commandId}</span>
+                        </td>
+                        <td class="display_3">
+                            Client :
+                        </td>
+                        <td class="display_4">
+                            ${commandesEntity.clientsByClientId.clientName}
+                        </td>
+                        <td class="display_2">
+                            CA HT =
+                        </td>
+                        <td class="row_number">
+                            <t:outputNumber value="commandesEntity.commandDevis"/>
+                        </td>
+                        <td class="little_operator">-</td>
+                        <td class="row_number">
+                            <t:outputNumber value="realCost"/>
+                        </td>
+                        <td class="little_operator">=</td>
+                        <td class="row_number">
+                            <t:outputNumber value="result"/>
+                        </td>
+                        <td class="row_number">
+                            <a t:type="pagelink" t:page="commandes/ModificationCommandes"
+                               t:context="commandesEntity.commandId">Modifier la commande
+                                n°${commandesEntity.commandId}
+                            </a>
+                        </td>
+                        <td class="row_number">
+                            <label t:type="label" t:for="finaliseCheckbox">Finaliser la commande:</label>
+                            <input t:type="checkbox" t:id="finaliseCheckbox" t:value="commandesEntity.finalise"/>
+                        </td>
+                        <td class="row_number">
+                            <label t:type="label" t:for="suppressionCheckbox">Supprimer la commande:</label>
+                            <input t:type="checkbox" t:id="suppressionCheckbox" t:value="suppressionChecked"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="display_line_bottom" colspan="13">
+                            ${commandesEntity.commandLibelle}
+                        </td>
+                    </tr>
+                </t:loop>
+                <!-- END display -->
+            </tbody>
+        </table>
+    </form>
+</t:template>

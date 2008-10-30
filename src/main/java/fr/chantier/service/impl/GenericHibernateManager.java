@@ -4,7 +4,7 @@ import fr.chantier.service.GenericManager;
 import fr.chantier.dao.GenericDAO;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,7 +26,7 @@ public class GenericHibernateManager<T, ID extends Serializable, DAO extends Gen
         return (T) dao.findById(id, lock);
     }
 
-    public List<T> findAll() {
+    public Collection<T> findAll() {
         return dao.findAll();
     }
 

@@ -1,6 +1,6 @@
 package fr.chantier.dao;
 
-import fr.chantier.model.Commandes;
+import fr.chantier.model.CommandesEntity;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,6 +9,6 @@ import fr.chantier.model.Commandes;
  * Time: 5:04:53 PM
  * To change this template use File | Settings | File Templates.
  */
-public interface CommandesDAO extends GenericDAO<Commandes, Integer> {
+public interface CommandesDAO extends GenericDAO<CommandesEntity, Integer> {
 
 }

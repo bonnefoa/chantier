@@ -4,6 +4,7 @@ import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Collection;
 
 /**
  * Dao generique pour l'acces aux entites de la base de donnees
@@ -26,7 +27,7 @@ public interface GenericDAO<T, ID extends Serializable> {
      *
      * @return Liste d'entites de la base
      */
-    List<T> findAll();
+    Collection<T> findAll();
 
     /**
      * Rend l'entite donne persistante. L'entite est inscrite dans la base si elle n'existe pas. Elle est mise a jour si elle a ete modifie

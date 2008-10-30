@@ -1,12 +1,12 @@
 package fr.chantier.service.impl;
 
-import fr.chantier.model.Clients;
-import fr.chantier.model.HistoriqueHeures;
-import fr.chantier.model.HistoriqueSomme;
-import fr.chantier.dao.ClientsDAO;
-import fr.chantier.dao.HistoriqueHeuresDAO;
 import fr.chantier.dao.HistoriqueSommeDAO;
+import fr.chantier.model.CommandesEntity;
+import fr.chantier.model.HistoriqueSommeEntity;
+import fr.chantier.model.SousTraitantsEntity;
 import fr.chantier.service.HistoriqueSommeManager;
+
+import java.util.Collection;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,8 +15,12 @@ import fr.chantier.service.HistoriqueSommeManager;
  * Time: 6:16:18 PM
  * To change this template use File | Settings | File Templates.
  */
-public class HistoriqueSommeManagerImpl extends GenericHibernateManager<HistoriqueSomme, Integer, HistoriqueSommeDAO> implements HistoriqueSommeManager{
+public class HistoriqueSommeManagerImpl extends GenericHibernateManager<HistoriqueSommeEntity, Integer, HistoriqueSommeDAO> implements HistoriqueSommeManager {
     public HistoriqueSommeManagerImpl(HistoriqueSommeDAO historiqueSommeDAO) {
         super(historiqueSommeDAO);
+    }
+
+    public Collection<HistoriqueSommeEntity> recupererHistoriqueSommeBySousTraitantsAndCommandes(SousTraitantsEntity sousTraitantsEntity, CommandesEntity commandesEntity) {
+        return dao.recupererHistoriqueSommeBySousTraitantsAndCommandes(sousTraitantsEntity, commandesEntity);
     }
 }

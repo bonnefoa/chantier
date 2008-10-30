@@ -1,8 +1,7 @@
 package fr.chantier.service;
 
-import fr.chantier.model.Clients;
-import fr.chantier.model.Coefficient;
-import fr.chantier.dao.ClientsDAO;
+import fr.chantier.model.ClientsEntity;
+import fr.chantier.model.CoefficientEntity;
 import fr.chantier.dao.CoefficientDAO;
 
 /**
@@ -12,7 +11,7 @@ import fr.chantier.dao.CoefficientDAO;
  * Time: 6:07:51 PM
  * To change this template use File | Settings | File Templates.
  */
-public interface CoefficientManager extends GenericManager<Coefficient, Integer, CoefficientDAO> {
+public interface CoefficientManager extends GenericManager<CoefficientEntity, Integer, CoefficientDAO> {
 
-    Coefficient findCurrentCoefficient();
+    CoefficientEntity findCurrentCoefficient();
 }

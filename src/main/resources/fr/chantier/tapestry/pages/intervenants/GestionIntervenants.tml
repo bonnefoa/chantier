@@ -1,0 +1,25 @@
+<t:template xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <h1>Création d'un intervenant</h1>
+    <t:beaneditform t:id="intervenants" t:object="intervenant" submitlabel="Créer l'intervenant"/>
+
+    <h1>Modification des intervenants</h1>
+    <t:grid t:source="intervenantsEntityList" t:row="intervenantRow" t:add="suppression">
+        <t:parameter name="interNameCell">
+            <div t:type="commons/InPlaceEditor" t:value="intervenantRow.interName"
+                 t:id="inPlaceEditor" t:context="intervenantRow.interId"/>
+        </t:parameter>
+        <t:parameter name="interOrdreCell">
+            <div t:type="commons/InPlaceEditor" t:value="intervenantRow.interOrdre"
+                 t:id="inPlaceEditorOrdre" t:context="intervenantRow.interId"/>
+        </t:parameter>
+        <t:parameter name="suppressionCell">
+            <a t:type="actionlink" t:context="intervenantRow.interId">
+                Supprimer
+            </a>
+        </t:parameter>
+    </t:grid>
+
+    <h1>Modification des coefficients</h1>
+    <t:beaneditform t:id="coefficientForm" t:object="coefficientEntity" submitlabel="Modifier les coefficients"/>
+</t:template>

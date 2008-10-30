@@ -1,6 +1,10 @@
 package fr.chantier.dao;
 
-import fr.chantier.model.Intervenants;
+import fr.chantier.model.IntervenantsEntity;
+import fr.chantier.model.SousTraitantsEntity;
+import fr.chantier.model.CommandesEntity;
+
+import java.util.Collection;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,5 +13,8 @@ import fr.chantier.model.Intervenants;
  * Time: 5:40:30 PM
  * To change this template use File | Settings | File Templates.
  */
-public interface IntervenantsDAO extends GenericDAO<Intervenants,Integer>{
+public interface IntervenantsDAO extends GenericDAO<IntervenantsEntity, Integer> {
+
+    Collection<IntervenantsEntity> findAllExisting();
+
 }

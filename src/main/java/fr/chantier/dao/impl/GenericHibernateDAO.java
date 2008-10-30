@@ -10,6 +10,8 @@ import org.hibernate.criterion.Order;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+import java.util.HashSet;
+import java.util.Collection;
 
 /**
  * Implementation du dao generic.<br />
@@ -57,7 +59,7 @@ public abstract class GenericHibernateDAO<T, ID extends Serializable>
     }
 
     @SuppressWarnings("unchecked")
-    public List<T> findAll() {
+    public Collection<T> findAll() {
         return findByCriteria();
     }
 
@@ -83,12 +85,12 @@ public abstract class GenericHibernateDAO<T, ID extends Serializable>
      * Use this inside subclasses as a convenience method.
      */
     @SuppressWarnings("unchecked")
-    protected List<T> findByCriteria(Criterion... criterion) {
+    protected Collection<T> findByCriteria(Criterion... criterion) {
         Criteria crit = getSession().createCriteria(getPersistentClass());
         for (Criterion c : criterion) {
             crit.add(c);
         }
-        return crit.list();
+        return new HashSet(crit.list());
     }
 
 }

@@ -1,8 +1,16 @@
 <t:template xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
     <h1>Création d'un client</h1>
-
-    <t:beaneditform t:id="client" t:object="client" submitlabel="Créer le client"/>
-
-    <p>Vous pourrer commandez vos rations de survies par l'intermédiaire de cette interface l33t</p>
-
+    <t:beaneditform t:id="client" exclude="clientOld" t:object="client" submitlabel="Créer le client"/>
+    <h1>Modification de clients</h1>
+    <t:grid t:source="clientsEntityList" t:row="clientRow" t:id="clientGrid" t:add="suppression">
+        <t:parameter name="clientNameCell">
+            <div t:type="commons/InPlaceEditor" t:value="clientRow.clientName"
+                 t:id="inPlaceEditor" t:context="clientRow.clientId" t:validate="required"/>            
+        </t:parameter>
+        <t:parameter name="suppressionCell">
+            <a t:type="actionlink" t:context="clientRow.clientId">
+                Supprimer
+            </a>
+        </t:parameter>
+    </t:grid>
 </t:template>

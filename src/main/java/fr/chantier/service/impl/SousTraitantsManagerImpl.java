@@ -1,14 +1,14 @@
 package fr.chantier.service.impl;
 
-import fr.chantier.model.Clients;
-import fr.chantier.model.HistoriqueHeures;
-import fr.chantier.model.Intervenants;
-import fr.chantier.model.SousTraitants;
-import fr.chantier.dao.ClientsDAO;
-import fr.chantier.dao.HistoriqueHeuresDAO;
-import fr.chantier.dao.IntervenantsDAO;
+import fr.chantier.model.ClientsEntity;
+import fr.chantier.model.SousTraitantsEntity;
+import fr.chantier.model.CommandesEntity;
+import fr.chantier.model.HistoriqueSommeEntity;
 import fr.chantier.dao.SousTraitantsDAO;
 import fr.chantier.service.SousTraitantsManager;
+import fr.chantier.service.HistoriqueSommeManager;
+
+import java.util.Collection;
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,9 +17,25 @@ import fr.chantier.service.SousTraitantsManager;
  * Time: 6:16:18 PM
  * To change this template use File | Settings | File Templates.
  */
-public class SousTraitantsManagerImpl extends GenericHibernateManager<SousTraitants, Integer, SousTraitantsDAO> implements SousTraitantsManager {
+public class SousTraitantsManagerImpl extends GenericHibernateManager<SousTraitantsEntity, Integer, SousTraitantsDAO> implements SousTraitantsManager {
 
-    public SousTraitantsManagerImpl(SousTraitantsDAO sousTraitantsDAO) {
+    private HistoriqueSommeManager historiqueSommeManager;
+
+    public SousTraitantsManagerImpl(SousTraitantsDAO sousTraitantsDAO, HistoriqueSommeManager historiqueSommeManager) {
         super(sousTraitantsDAO);
+        this.historiqueSommeManager = historiqueSommeManager;
+    }
+
+    public Collection<SousTraitantsEntity> findAllExisting() {
+        return dao.findAllExisting();
+    }
+
+    public Float getSumOfCostForCommande(SousTraitantsEntity sousTraitantsEntity, CommandesEntity commandesEntity) {
+        Float res = 0.f;
+        Collection<HistoriqueSommeEntity> collectionSommes = historiqueSommeManager.recupererHistoriqueSommeBySousTraitantsAndCommandes(sousTraitantsEntity, commandesEntity);
+        for (HistoriqueSommeEntity collectioSomme : collectionSommes) {
+            res += collectioSomme.getHistoriqueSomme();
+        }
+        return res;
     }
 }

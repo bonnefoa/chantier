@@ -1,6 +1,24 @@
 <t:template xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
-      <h1>Bienvenue sur le site de commande de pizza</h1>
+    <h1>Création d'un sous-traitant</h1>
 
-      <p>Vous pourrer commandez vos rations de survies par l'intermédiaire de cette interface l33t</p>
+    <t:beaneditform t:id="sousTraitantsForm" t:object="sousTraitant" submitlabel="Créer le sous-traitant"/>
+
+    <h1>Modification des sous-traitants</h1>
+
+    <t:grid t:source="sousTraitantsEntityList" t:row="sousTraitantRow" t:add="suppression">
+        <t:parameter name="stNameCell">
+            <div t:type="commons/InPlaceEditor" t:value="sousTraitantRow.stName"
+                 t:id="inPlaceEditor" t:context="sousTraitantRow.stId" t:validate="required"/>
+        </t:parameter>
+        <t:parameter name="suppressionCell">
+            <a t:type="actionlink" t:id="suppressionEntite" t:context="sousTraitantRow.stId">
+                Supprimer
+            </a>
+        </t:parameter>
+    </t:grid>
+
+    <h1>Modification des coefficients</h1>
+    
+    <t:beaneditform t:id="coefficientForm" t:object="coefficientEntity" submitlabel="Modifier les coefficients"/>
 
 </t:template>

@@ -1,10 +1,16 @@
 package fr.chantier.tapestry.pages.clients;
 
+import fr.chantier.model.ClientsEntity;
 import fr.chantier.service.ClientsManager;
-import fr.chantier.model.Clients;
-import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.log4j.Logger;
+import org.apache.tapestry.commons.components.InPlaceEditor;
 import org.apache.tapestry5.annotations.OnEvent;
+import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.annotations.SetupRender;
 import org.apache.tapestry5.corelib.components.Form;
+import org.apache.tapestry5.ioc.annotations.Inject;
+
+import java.util.Collection;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,13 +21,60 @@ import org.apache.tapestry5.corelib.components.Form;
  */
 public class GestionClients {
 
-    private Clients client;
+    private Logger log = Logger.getLogger(this.getClass());
+
+    @Property
+    private ClientsEntity client;
+
+    @Property(write = false)
+    private Collection<ClientsEntity> clientsEntityList;
+
+    @Property
+    private ClientsEntity clientRow;
 
     @Inject
     private ClientsManager clientsManager;
 
+    /**
+     * Au rendu de la page
+     */
+    @SetupRender
+    private void onSetupRender() {
+        clientsEntityList = clientsManager.findAllExisting();
+    }
+
+    /**
+     * Au succes du beaneditForm, creation du client en base
+     */
     @OnEvent(value = Form.SUCCESS, component = "client")
     private void onSuccess() {
         clientsManager.makePersistent(client);
     }
+
+    /**
+     * Suppression d'un client
+     *
+     * @param idClient Identifiant du client a supprimer
+     */
+    @OnEvent(value = "action")
+    private void onSuppress(Integer idClient) {
+        ClientsEntity temp = clientsManager.findById(idClient, false);
+        log.debug("Client temp : " + temp.toString());
+        temp.setClientOld(true);
+        clientsManager.makePersistent(temp);
+    }
+
+    /**
+     * Modification du nom du client
+     *
+     * @param clientId
+     * @param clientName
+     */
+    @OnEvent(component = "inPlaceEditor", value = InPlaceEditor.SAVE_EVENT)
+    void actionFromEditor(Integer clientId, String clientName) {
+        ClientsEntity entite = clientsManager.findById(clientId, false);
+        entite.setClientName(clientName);
+        clientsManager.makePersistent(entite);
+    }
+
 }

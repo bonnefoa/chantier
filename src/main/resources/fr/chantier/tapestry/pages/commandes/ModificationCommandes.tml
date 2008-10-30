@@ -1,6 +1,127 @@
 <t:template xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
-      <h1>Bienvenue sur le site de commande de pizza</h1>
+    <h1>
+        <t:if t:test="isModification">
+            Modification de la commande n°${commandesEntity.commandId}
+            <t:parameter name="else">
+                Création de la commande
+            </t:parameter>
+        </t:if>
+    </h1>
+    <h2>
+        <a t:type="actionlink" t:id="HistoriqueHeuresShow">${labelLienHeure}</a>
+    </h2>
+    <h2>
+        <a t:type="actionlink" t:id="HistoriqueSommesShow">${labelLienSomme}</a>
+    </h2>
 
-      <p>Vous pourrer commandez vos rations de survies par l'intermédiaire de cette interface l33t</p>
+    <t:beaneditform t:object="commandesEntity" t:id="commandesForm"
+                    submitlabel="Valider" t:model="beanModel">
+        <t:parameter name="commandDateCell">
+            <t:label t:for="date"/>
+            <t:datefield t:value="commandesEntity.commandDate" t:id="date"/>
+        </t:parameter>
+        <t:parameter name="client">
+            <div class="t-beaneditor-row">
+                <label t:type="label" t:for="selectClient">
+                    Choisissez le client
+                </label>
+                <select t:id="selectClient" t:type="select" blankoption="never" t:value="idClient"
+                        t:model="modelSelectClient"/>
+            </div>
+        </t:parameter>
+        <t:parameter name="historiqueHeures">
+            <table>
+                <caption>Intervenants</caption>
+                <thead>
+                    <tr>
+                        <th class="commande_row">
+                            Nom de l'intervenant
+                        </th>
+                        <th class="commande_row">
+                            Nombre d'heures total
+                        </th>
+                        <th class="commande_row">
+                            Entrez le nombre d'heures des intervenants
+                        </th>
+                    </tr>
+                </thead>
+                <t:loop t:source="listeIntervenants" t:value="intervenantsEntity">
+                    <tr>
+                        <td>${intervenantsEntity.interName}</td>
+                        <td>${heuresEtMinutes}</td>
+                        <t:submitnotifier t:id="ajoutHeure">
+                            <td>
+                                <t:textfield t:id="heuresIntervenant" value="heuresSelected"/>
+                                heures
+                                <t:textfield t:id="minutesIntervenant" value="minutesSelected"/>
+                                minutes
+                            </td>
+                        </t:submitnotifier>
+                    </tr>
+                    <t:if t:test="isDisplayHeure">
+                        <t:delegate to="block:historiqueHeuresBlock"/>
+                    </t:if>
+                </t:loop>
+            </table>
+        </t:parameter>
+        <t:parameter name="historiqueSommes">
+            <table class="head_table">
+                <caption>Sous-traitants</caption>
+                <thead>
+                    <tr>
+                        <th class="commande_row">
+                            Nom du sous-traitants
+                        </th>
+                        <th class="commande_row">
+                            Coût total du sous-traitants
+                        </th>
+                        <th class="commande_row">
+                            Entrez le coût du sous-traitants
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t:loop t:source="listSousTraitants" t:value="sousTraitantsEntity">
+                        <tr>
+                            <td class="commande_row">
+                                ${sousTraitantsEntity.stName}
+                            </td>
+
+                            <td class="commande_row">
+                                <t:outputNumber value="sousTraitantsTotalCost"/>
+                            </td>
+                            <t:submitnotifier t:id="ajoutSomme">
+                                <td class="commande_row">
+                                    <t:textfield t:id="sommesSousTraitants" value="sommeSelected"/>
+                                </td>
+                            </t:submitnotifier>
+                        </tr>
+                        <t:if t:test="isDisplaySommes">
+                            <t:delegate to="block:historiqueSommesBlock"/>
+                        </t:if>
+                    </t:loop>
+                </tbody>
+            </table>
+        </t:parameter>
+    </t:beaneditform>
+
+    <t:block t:id="historiqueHeuresBlock">
+        <tr>
+            <td class="commande_row" colspan="4">
+                <div t:type="commandes/DetailHistoriqueHeures" t:commandesEntity="commandesEntity"
+                     t:intervenantsEntity="intervenantsEntity"/>
+            </td>
+        </tr>
+    </t:block>
+
+    <t:block t:id="historiqueSommesBlock">
+        <tr>
+            <td class="commande_row" colspan="4">
+                <div t:type="commandes/DetailHistoriqueSommes" t:commandesEntity="commandesEntity"
+                     t:sousTraitantsEntity="sousTraitantsEntity"/>
+            </td>
+        </tr>
+    </t:block>
+
 
 </t:template>

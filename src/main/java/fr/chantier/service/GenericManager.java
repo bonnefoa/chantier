@@ -4,6 +4,7 @@ import fr.chantier.dao.GenericDAO;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by IntelliJ IDEA.
@@ -28,7 +29,7 @@ public interface GenericManager<T, ID extends Serializable, DAO extends GenericD
      *
      * @return Liste d'entites de la base
      */
-    List<T> findAll();
+    Collection<T> findAll();
 
     /**
      * Rend l'entite donne persistante. L'entite est inscrite dans la base si elle n'existe pas. Elle est mise a jour si elle a ete modifie

@@ -1,8 +1,11 @@
 package fr.chantier.service.impl;
 
-import fr.chantier.model.Clients;
+import fr.chantier.model.ClientsEntity;
+import fr.chantier.model.ClientsEntity;
 import fr.chantier.dao.ClientsDAO;
 import fr.chantier.service.ClientsManager;
+
+import java.util.Collection;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,8 +14,12 @@ import fr.chantier.service.ClientsManager;
  * Time: 6:16:18 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ClientsManagerImpl extends GenericHibernateManager<Clients, Integer, ClientsDAO> implements ClientsManager {
+public class ClientsManagerImpl extends GenericHibernateManager<ClientsEntity, Integer, ClientsDAO> implements ClientsManager {
     public ClientsManagerImpl(ClientsDAO clientsDAO) {
         super(clientsDAO);
+    }
+
+    public Collection<ClientsEntity> findAllExisting() {
+        return dao.findAllExisting();
     }
 }

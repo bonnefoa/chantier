@@ -1,0 +1,33 @@
+<table xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="table_histo">
+    <caption class="caption_histo">Historique des sommes</caption>
+    <thead>
+        <tr>
+            <th class="commande_histo_head_row">
+                Date de rentrée
+            </th>
+            <th class="commande_histo_head_row">
+                Somme
+            </th>
+            <th class="commande_histo_head_row">
+                Effacer cette entrée
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr t:type="loop" t:source="ListHistoriqueSommes" t:value="historiqueSommes">
+            <td class="commande_histo_row">
+                ${historiqueSommes.historiqueDate}
+            </td>
+
+            <td class="commande_histo_row">
+                <t:outputnumber value="historiqueSommes.historiqueSomme"/>
+            </td>
+            <t:submitnotifier>
+                <td class="commande_histo_row">
+                    <label t:type="label" t:for="effacerSommes">Effacer</label>
+                    <input t:type="checkbox" t:id="effacerSommes" t:value="sommesToRemove"/>
+                </td>
+            </t:submitnotifier>
+        </tr>
+    </tbody>
+</table>
