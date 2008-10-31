@@ -73,7 +73,7 @@ public class CommandesManagerImpl extends GenericHibernateManager<CommandesEntit
 
     public Float getCostOfSousTraitants(CommandesEntity commandesEntity) {
         CoefficientEntity coefficientEntity = coefficientManager.findCurrentCoefficient();
-        return coefficientEntity.getInterCoef() * this.getSumOfCostByCommandes(commandesEntity);
+        return coefficientEntity.getStCoef() * this.getSumOfCostByCommandes(commandesEntity);
     }
 
     public CommandesEntity finaliserCommande(CommandesEntity commandesEntity, boolean finaliser) {
@@ -115,7 +115,11 @@ public class CommandesManagerImpl extends GenericHibernateManager<CommandesEntit
     }
 
 
-    public Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, SimpleExpression typeFinalise, Date dateBefore, Date dateAfter) {
-        return dao.findByCriterions(clientsEntity, order, typeFinalise, dateBefore, dateAfter);
+    public Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, SimpleExpression typeFinalise, Date dateBefore) {
+        return dao.findByCriterions(clientsEntity, order, typeFinalise, dateBefore);
+    }
+
+    public CommandesEntity findById(Integer integer) {
+        return dao.findById(integer);
     }
 }

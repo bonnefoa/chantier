@@ -1,6 +1,5 @@
 package fr.chantier.model;
 
-import org.apache.tapestry5.beaneditor.Validate;
 import org.apache.tapestry5.beaneditor.NonVisual;
 
 import javax.persistence.*;
@@ -9,26 +8,13 @@ import java.io.Serializable;
 /**
  * Created by IntelliJ IDEA.
  * User: bonnefoy
- * Date: 28 oct. 2008
- * Time: 17:52:01
+ * Date: 30 oct. 2008
+ * Time: 22:52:30
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(schema = "chantier", name = "coefficient")
+@Table(catalog = "chantier", name = "coefficient")
 public class CoefficientEntity implements Serializable {
-    private int coefficientId;
-
-    @Id
-    @NonVisual
-    @Column(name = "coefficient_id", nullable = false, length = 10)
-    public int getCoefficientId() {
-        return coefficientId;
-    }
-
-    public void setCoefficientId(int coefficientId) {
-        this.coefficientId = coefficientId;
-    }
-
     private Float stCoef;
 
     @Basic
@@ -53,6 +39,19 @@ public class CoefficientEntity implements Serializable {
         this.interCoef = interCoef;
     }
 
+    private int coefficientId;
+
+    @Id
+    @NonVisual
+    @Column(name = "coefficient_id", nullable = false, length = 8)
+    public int getCoefficientId() {
+        return coefficientId;
+    }
+
+    public void setCoefficientId(int coefficientId) {
+        this.coefficientId = coefficientId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -69,9 +68,9 @@ public class CoefficientEntity implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = coefficientId;
-        result = 31 * result + (stCoef != null ? stCoef.hashCode() : 0);
+        int result = stCoef != null ? stCoef.hashCode() : 0;
         result = 31 * result + (interCoef != null ? interCoef.hashCode() : 0);
+        result = 31 * result + coefficientId;
         return result;
     }
 }

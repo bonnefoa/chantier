@@ -143,8 +143,15 @@ public interface CommandesManager extends GenericManager<CommandesEntity, Intege
      * @param order
      * @param typeFinalise
      * @param dateBefore
-     * @param dateAfter
      * @return
      */
-    Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, SimpleExpression typeFinalise, Date dateBefore, Date dateAfter);
+    Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, SimpleExpression typeFinalise, Date dateBefore);
+
+    /**
+     * Cherche par l'identifiant
+     *
+     * @param integer
+     * @return
+     */
+    CommandesEntity findById(Integer integer);
 }

@@ -1,13 +1,12 @@
 package fr.chantier.tapestry.components.commandes;
 
+import fr.chantier.model.CommandesEntity;
 import fr.chantier.model.HistoriqueHeuresEntity;
 import fr.chantier.model.IntervenantsEntity;
-import fr.chantier.model.CommandesEntity;
-import fr.chantier.service.HistoriqueHeuresManager;
 import fr.chantier.service.CommandesManager;
+import fr.chantier.service.HistoriqueHeuresManager;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
-import org.apache.tapestry5.annotations.SetupRender;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 import java.util.Collection;
@@ -40,14 +39,20 @@ public class DetailHistoriqueHeures {
     @Property(write = false)
     private boolean heuresToRemove;
 
+    @Property(write = false)
+    private Collection<HistoriqueHeuresEntity> listHistoriqueHeures;
+
     /**
-     * Getter de liste pour la boucle
+     * Test si il faut afficher l'historique
      *
      * @return
      */
-    public Collection<HistoriqueHeuresEntity> getListHistoriqueHeures() {
-        Collection<HistoriqueHeuresEntity> res = historiqueHeuresManager.findHistoriqueHeuresByIntervenantAndCommand(intervenantsEntity, commandesEntity);
-        return res;
+    public boolean gethasData() {
+        listHistoriqueHeures = historiqueHeuresManager.findHistoriqueHeuresByIntervenantAndCommand(intervenantsEntity, commandesEntity);
+        if (listHistoriqueHeures.size() == 0) {
+            return false;
+        }
+        return true;
     }
 
     public int getHeuresIndiv() {

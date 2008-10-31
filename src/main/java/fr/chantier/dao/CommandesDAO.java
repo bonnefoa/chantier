@@ -17,6 +17,8 @@ import java.util.Date;
  */
 public interface CommandesDAO extends GenericDAO<CommandesEntity, Integer> {
 
+    CommandesEntity findById(Integer commandId);
+
     /**
      * Recupere la liste des commandes correspondants aux criteres donnes
      *
@@ -24,8 +26,7 @@ public interface CommandesDAO extends GenericDAO<CommandesEntity, Integer> {
      * @param order
      * @param typeFinalise
      * @param dateBefore
-     * @param dateAfter
      * @return
      */
-    Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, SimpleExpression typeFinalise, Date dateBefore, Date dateAfter);
+    Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, SimpleExpression typeFinalise, Date dateBefore);
 }

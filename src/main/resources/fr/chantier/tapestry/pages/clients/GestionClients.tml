@@ -8,7 +8,7 @@
                  t:id="inPlaceEditor" t:context="clientRow.clientId" t:validate="required"/>            
         </t:parameter>
         <t:parameter name="suppressionCell">
-            <a t:type="actionlink" t:context="clientRow.clientId">
+            <a t:type="actionlink" t:id="deleteClient" t:context="clientRow.clientId">
                 Supprimer
             </a>
         </t:parameter>

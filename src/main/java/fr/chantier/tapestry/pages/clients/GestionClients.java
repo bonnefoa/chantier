@@ -56,10 +56,9 @@ public class GestionClients {
      *
      * @param idClient Identifiant du client a supprimer
      */
-    @OnEvent(value = "action")
-    private void onSuppress(Integer idClient) {
+    @OnEvent(value = "action",component = "deleteClient")
+    private void onDeleteClient(Integer idClient) {
         ClientsEntity temp = clientsManager.findById(idClient, false);
-        log.debug("Client temp : " + temp.toString());
         temp.setClientOld(true);
         clientsManager.makePersistent(temp);
     }

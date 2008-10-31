@@ -1,36 +1,42 @@
-<table xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="table_histo">
-    <caption class="caption_histo">Historique des heures</caption>
-    <thead>
-        <tr>
-            <th class="commande_histo_head_row">
-                Date de l'heure
-            </th>
-            <th class="commande_histo_head_row">
-                Heures
-            </th>
-            <th class="commande_histo_head_row">
-                Effacer cette entrée
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr t:type="loop" t:source="listHistoriqueHeures" t:value="historiqueHeures">
-            <td class="commande_histo_row">
-                ${historiqueHeures.historiqueDate}
-            </td>
+<t:if test="hasData" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <tr>
+        <td class="commande_row" colspan="4">
+            <table class="table_histo">
+                <caption class="caption_histo">Historique des heures</caption>
+                <thead>
+                    <tr>
+                        <th class="commande_histo_head_row">
+                            Date de l'heure
+                        </th>
+                        <th class="commande_histo_head_row">
+                            Heures
+                        </th>
+                        <th class="commande_histo_head_row">
+                            Effacer cette entrée
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t:type="loop" t:source="listHistoriqueHeures" t:value="historiqueHeures">
+                        <td class="commande_histo_row">
+                            ${historiqueHeures.historiqueDate}
+                        </td>
 
-            <td class="commande_histo_row">
-                ${heuresIndiv}
-                heures
-                ${minutesIndiv}
-                minutes
-            </td>
-            <t:submitnotifier>
-                <td class="commande_histo_row">
-                    <label t:type="label" t:for="effacerHeures">Effacer</label>
-                    <input t:type="checkbox" t:id="effacerHeures" t:value="heuresToRemove"/>
-                </td>
-            </t:submitnotifier>
-        </tr>
-    </tbody>
-</table>
+                        <td class="commande_histo_row">
+                            ${heuresIndiv}
+                            heures
+                            ${minutesIndiv}
+                            minutes
+                        </td>
+                        <t:submitnotifier>
+                            <td class="commande_histo_row">
+                                <label t:type="label" t:for="effacerHeures">Effacer</label>
+                                <input t:type="checkbox" t:id="effacerHeures" t:value="heuresToRemove"/>
+                            </td>
+                        </t:submitnotifier>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+</t:if>

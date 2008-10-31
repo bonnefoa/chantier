@@ -15,10 +15,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -64,9 +61,10 @@ public class HeaderCommand {
 
     private Calendar calendar;
 
-    @Persist("flash")
+    @Persist("entity")
     private ClientsEntity clientsEntity;
 
+    @Persist("entity")
     private CommandesEntity commandesEntity;
 
     @Property
@@ -75,6 +73,7 @@ public class HeaderCommand {
     @PageLoaded
     private void onPageLoaded() {
         if (mois == null || annee == null) {
+            activateDate = true;
             Calendar cal = Calendar.getInstance();
             mois = Mois.lookup(cal.get(Calendar.MONTH));
             annee = cal.get(Calendar.YEAR);
@@ -83,7 +82,7 @@ public class HeaderCommand {
             typeOrdonnancement = TypeOrdonnancement.CROISSANTE;
         }
         if (typeClassement == null) {
-            typeClassement = TypeClassement.DATE;
+            typeClassement = TypeClassement.NUMERO;
         }
         if (typeFinalise == null) {
             typeFinalise = TypeFinalise.LES_DEUX;
@@ -107,7 +106,7 @@ public class HeaderCommand {
     @OnEvent(component = "rechercheClientForm", value = Form.SUCCESS)
     private void onSuccessFromRechercheClientForm() {
         try {
-            commandesEntity = commandesManager.findById(Integer.valueOf(inputSearch), false);
+            commandesEntity = commandesManager.findById(Integer.valueOf(inputSearch));
         } catch (NumberFormatException e) {
             clientsEntity = clientsManager.findClientByName(inputSearch);
         }
@@ -119,21 +118,23 @@ public class HeaderCommand {
      * @return
      */
     public Collection<CommandesEntity> getCommandesEntityCollection() {
+        if (commandesEntity != null) {
+            ArrayList<CommandesEntity> temp = new ArrayList<CommandesEntity>();
+            temp.add(commandesEntity);
+            commandesEntity = null;
+            return temp;
+        }
         Collection<CommandesEntity> res;
         Date dateAfter = null;
-        Date dateBefore = null;
+        Date date = null;
         if (activateDate != null && activateDate) {
             calendar = new GregorianCalendar();
             calendar.set(Calendar.DAY_OF_MONTH, 1);
             calendar.set(Calendar.YEAR, annee);
             calendar.set(Calendar.MONTH, mois.getI());
-            dateBefore = calendar.getTime();
-            calendar = (Calendar) calendar.clone();
-            calendar.add(Calendar.MONTH, 1);
-            dateAfter = calendar.getTime();
+            date = calendar.getTime();
         }
-
-        res = commandesManager.findByCriterions(clientsEntity, typeClassement.getOrder(typeOrdonnancement), typeFinalise.getSimpleExpression(), dateBefore, dateAfter);
+        res = commandesManager.findByCriterions(clientsEntity, typeClassement.getOrder(typeOrdonnancement), typeFinalise.getSimpleExpression(), date);
         return res;
     }
 }

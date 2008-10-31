@@ -9,7 +9,9 @@ import org.apache.tapestry5.beaneditor.BeanModel;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.BeanModelSource;
+import org.apache.tapestry5.services.Response;
 
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -141,6 +143,9 @@ public class ModificationCommandes {
 
     private Calendar cal;
 
+    @Inject
+    private Response response;
+
     /**
      * Initialisation du model
      */
@@ -160,7 +165,11 @@ public class ModificationCommandes {
      */
     @OnEvent("activate")
     private void onActivate(Integer idCommande) {
-        this.idCommande = idCommande;
+        try {
+            this.idCommande = idCommande;
+        } catch (NumberFormatException e) {
+            redirectUser();
+        }
     }
 
     /**
@@ -174,7 +183,10 @@ public class ModificationCommandes {
         cal = new GregorianCalendar();
         if (idCommande != null) {
             isModification = true;
-            commandesEntity = commandesManager.findById(idCommande, false);
+            commandesEntity = commandesManager.findById(idCommande);
+            if (commandesEntity == null) {
+                redirectUser();
+            }
             idClient = commandesEntity.getClientsByClientId().getClientId();
             cal.setTime(commandesEntity.getCommandDate());
         } else {
@@ -185,11 +197,19 @@ public class ModificationCommandes {
         this.initModel();
     }
 
+    private void redirectUser() {
+        try {
+            response.sendRedirect("");
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
+
     /**
      * Initialise le model pour le select du client
      */
     private void initModel() {
-        modelSelectClient = new TreeMap<Integer, String>();
+        modelSelectClient = new LinkedHashMap<Integer, String>();
         Collection<ClientsEntity> listClients = clientsManager.findAllExisting();
         for (ClientsEntity listClient : listClients) {
             modelSelectClient.put(listClient.getClientId(), listClient.getClientName());
@@ -213,9 +233,11 @@ public class ModificationCommandes {
         if (commandesEntity.getCommandDevis() == null)
             commandesEntity.setCommandDevis(0.f);
         cal = new GregorianCalendar();
-        cal.set(Calendar.DAY_OF_MONTH, 2);
-        cal.set(Calendar.MONTH, mois.getI());
-        cal.set(Calendar.YEAR, annee);
+        if (mois.getI() != cal.get(Calendar.MONTH) || annee != cal.get(Calendar.YEAR)) {
+            cal.set(Calendar.DAY_OF_MONTH, 1);
+            cal.set(Calendar.MONTH, mois.getI());
+            cal.set(Calendar.YEAR, annee);
+        }
         commandesEntity.setCommandDate(cal.getTime());
         ClientsEntity clientsEntity = clientsManager.findById(idClient, false);
         commandesEntity.setClientsByClientId(clientsEntity);

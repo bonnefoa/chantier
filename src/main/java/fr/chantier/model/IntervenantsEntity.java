@@ -1,7 +1,6 @@
 package fr.chantier.model;
 
 import org.apache.tapestry5.beaneditor.NonVisual;
-import org.apache.tapestry5.beaneditor.Validate;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -10,20 +9,19 @@ import java.io.Serializable;
 /**
  * Created by IntelliJ IDEA.
  * User: bonnefoy
- * Date: 28 oct. 2008
- * Time: 17:52:03
+ * Date: 30 oct. 2008
+ * Time: 22:52:33
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(schema = "chantier", name = "intervenants")
-public class IntervenantsEntity implements Serializable {
+@Table(catalog = "chantier", name = "intervenants")
+public class IntervenantsEntity implements Serializable{
     private int interId;
 
     @Id
     @NonVisual
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorCommandes")
-    @SequenceGenerator(name = "generatorCommandes", sequenceName = "intervenants_inter_id_seq")
-    @Column(name = "inter_id", nullable = false, length = 10)
+    @GeneratedValue
+    @Column(name = "inter_id", nullable = false, length = 8)
     public int getInterId() {
         return interId;
     }
@@ -35,8 +33,7 @@ public class IntervenantsEntity implements Serializable {
     private String interName;
 
     @Basic
-        @Validate("required=true")
-    @Column(name = "inter_name")
+    @Column(name = "inter_name", nullable = false)
     public String getInterName() {
         return interName;
     }
@@ -62,7 +59,7 @@ public class IntervenantsEntity implements Serializable {
 
     @Basic
     @NonVisual
-    @Column(name = "inter_old", nullable = false, length = 1)
+    @Column(name = "Inter_old", nullable = false, length = 0)
     public boolean isInterOld() {
         return interOld;
     }
@@ -74,7 +71,7 @@ public class IntervenantsEntity implements Serializable {
     private short interOrdre;
 
     @Basic
-    @Column(name = "inter_ordre", nullable = false, length = 5)
+    @Column(name = "inter_ordre", nullable = false, length = 3)
     public short getInterOrdre() {
         return interOrdre;
     }

@@ -1,36 +1,19 @@
 package fr.chantier.model;
 
-import org.apache.tapestry5.beaneditor.NonVisual;
-
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
+import java.io.Serializable;
 
 /**
  * Created by IntelliJ IDEA.
  * User: bonnefoy
- * Date: 28 oct. 2008
- * Time: 17:52:02
+ * Date: 30 oct. 2008
+ * Time: 22:52:33
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(schema = "chantier", name = "historique_somme")
+@Table(catalog = "chantier", name = "historique_somme")
 public class HistoriqueSommeEntity implements Serializable {
-    private int historiqueSommeId;
-
-    @Id
-    @NonVisual
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "generatorCommandes")
-    @SequenceGenerator(name="generatorCommandes",sequenceName="historique_somme_historique_somme_id_seq")    
-    @Column(name = "historique_somme_id", nullable = false, length = 10)
-    public int getHistoriqueSommeId() {
-        return historiqueSommeId;
-    }
-
-    public void setHistoriqueSommeId(int historiqueSommeId) {
-        this.historiqueSommeId = historiqueSommeId;
-    }
-
     private Float historiqueSomme;
 
     @Basic
@@ -46,13 +29,26 @@ public class HistoriqueSommeEntity implements Serializable {
     private Date historiqueDate;
 
     @Basic
-    @Column(name = "historique_date", nullable = false, length = 29, precision = 6)
+    @Column(name = "historique_date", nullable = false, length = 19)
     public Date getHistoriqueDate() {
         return historiqueDate;
     }
 
     public void setHistoriqueDate(Date historiqueDate) {
         this.historiqueDate = historiqueDate;
+    }
+
+    private int historiqueSommeId;
+
+    @Id
+    @GeneratedValue
+    @Column(name = "historique_somme_id", nullable = false, length = 8)
+    public int getHistoriqueSommeId() {
+        return historiqueSommeId;
+    }
+
+    public void setHistoriqueSommeId(int historiqueSommeId) {
+        this.historiqueSommeId = historiqueSommeId;
     }
 
     @Override
@@ -73,33 +69,33 @@ public class HistoriqueSommeEntity implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = historiqueSommeId;
-        result = 31 * result + (historiqueSomme != null ? historiqueSomme.hashCode() : 0);
+        int result = historiqueSomme != null ? historiqueSomme.hashCode() : 0;
         result = 31 * result + (historiqueDate != null ? historiqueDate.hashCode() : 0);
+        result = 31 * result + historiqueSommeId;
         return result;
-    }
-
-    private SousTraitantsEntity sousTraitantsByStId;
-
-    @ManyToOne
-    @JoinColumn(name = "st_id", referencedColumnName = "st_id")
-    public SousTraitantsEntity getSousTraitantsByStId() {
-        return sousTraitantsByStId;
-    }
-
-    public void setSousTraitantsByStId(SousTraitantsEntity sousTraitantsByStId) {
-        this.sousTraitantsByStId = sousTraitantsByStId;
     }
 
     private CommandesEntity commandesByCommandId;
 
     @ManyToOne
-    @JoinColumn(name = "command_id", referencedColumnName = "command_id")
+    @JoinColumn(name = "command_id", referencedColumnName = "command_id", nullable = false)
     public CommandesEntity getCommandesByCommandId() {
         return commandesByCommandId;
     }
 
     public void setCommandesByCommandId(CommandesEntity commandesByCommandId) {
         this.commandesByCommandId = commandesByCommandId;
+    }
+
+    private SousTraitantsEntity sousTraitantsByStId;
+
+    @ManyToOne
+    @JoinColumn(name = "st_id", referencedColumnName = "st_id", nullable = false)
+    public SousTraitantsEntity getSousTraitantsByStId() {
+        return sousTraitantsByStId;
+    }
+
+    public void setSousTraitantsByStId(SousTraitantsEntity sousTraitantsByStId) {
+        this.sousTraitantsByStId = sousTraitantsByStId;
     }
 }

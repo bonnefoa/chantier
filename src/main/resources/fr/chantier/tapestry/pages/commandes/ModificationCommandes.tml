@@ -7,24 +7,31 @@
             </t:parameter>
         </t:if>
     </h1>
-    <h2 class="text_align">
-        <a t:type="actionlink" t:id="HistoriqueHeuresShow">${labelLienHeure}</a>
-    </h2>
-    <h2 class="text_align">
-        <a t:type="actionlink" t:id="HistoriqueSommesShow">${labelLienSomme}</a>
-    </h2>
+    <t:if t:test="isModification">
+        <h2 class="text_align">
+            <a t:type="actionlink" t:id="HistoriqueHeuresShow">${labelLienHeure}</a>
+        </h2>
+        <h2 class="text_align">
+            <a t:type="actionlink" t:id="HistoriqueSommesShow">${labelLienSomme}</a>
+        </h2>
+    </t:if>
     <t:beaneditform t:object="commandesEntity" t:id="commandesForm"
                     submitlabel="Valider" t:model="beanModel">
         <t:parameter name="commandDevis">
             <t:label t:for="commandDevis">
                 Entrez le devis initial
             </t:label>
-            <t:textfield t:id="commandDevis" t:value="commandDevis"/> €
+            <t:textfield t:id="commandDevis" t:value="commandDevis"/>
+            €
         </t:parameter>
         <t:parameter name="commandDate">
             <t:label t:for="mois">Mois de facturation</t:label>
             <t:select t:id="mois" t:blankoption="never" t:value="mois"/>
             <t:textfield t:id="annee" t:value="annee" t:validate="regexp"/>
+        </t:parameter>
+        <t:parameter name="commandLibelle">
+            <t:label t:for="libelle"/>
+            <t:textfield t:value="commandesEntity.commandLibelle" t:id="libelle" size="100"/>
         </t:parameter>
         <t:parameter name="client">
             <div class="t-beaneditor-row">
@@ -113,20 +120,12 @@
     </t:beaneditform>
 
     <t:block t:id="historiqueHeuresBlock">
-        <tr>
-            <td class="commande_row" colspan="4">
-                <div t:type="commandes/DetailHistoriqueHeures" t:commandesEntity="commandesEntity"
-                     t:intervenantsEntity="intervenantsEntity"/>
-            </td>
-        </tr>
+        <div t:type="commandes/DetailHistoriqueHeures" t:commandesEntity="commandesEntity"
+             t:intervenantsEntity="intervenantsEntity"/>
     </t:block>
 
     <t:block t:id="historiqueSommesBlock">
-        <tr>
-            <td class="commande_row" colspan="4">
-                <div t:type="commandes/DetailHistoriqueSommes" t:commandesEntity="commandesEntity"
-                     t:sousTraitantsEntity="sousTraitantsEntity"/>
-            </td>
-        </tr>
+        <div t:type="commandes/DetailHistoriqueSommes" t:commandesEntity="commandesEntity"
+             t:sousTraitantsEntity="sousTraitantsEntity"/>
     </t:block>
 </t:template>

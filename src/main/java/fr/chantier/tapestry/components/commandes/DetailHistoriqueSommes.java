@@ -39,15 +39,21 @@ public class DetailHistoriqueSommes {
     @Property(write = false)
     private boolean sommesToRemove;
 
+    @Property(write = false)
+    private Collection<HistoriqueSommeEntity> listHistoriqueSommes;
+
     /**
-     * Getter de liste pour la boucle
+     * Test si il faut afficher l'historique
      *
      * @return
      */
-    public Collection<HistoriqueSommeEntity> getListHistoriqueSommes() {
-        Collection<HistoriqueSommeEntity> res = historiqueSommeManager.recupererHistoriqueSommeBySousTraitantsAndCommandes(sousTraitantsEntity, commandesEntity);
-        return res;
-    }
+    public boolean gethasData() {
+        listHistoriqueSommes = historiqueSommeManager.recupererHistoriqueSommeBySousTraitantsAndCommandes(sousTraitantsEntity, commandesEntity);
+        if (listHistoriqueSommes.size() == 0) {
+            return false;
+        }
+        return true;
+    }    
 
     public void setSommesToRemove(boolean checked) {
         if (checked) {

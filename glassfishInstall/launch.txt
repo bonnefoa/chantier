@@ -1,0 +1,1 @@
+C:\Program Files\glassfish\bin>asadmin start-domain chantier

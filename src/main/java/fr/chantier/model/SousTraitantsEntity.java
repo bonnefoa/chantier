@@ -1,7 +1,6 @@
 package fr.chantier.model;
 
 import org.apache.tapestry5.beaneditor.NonVisual;
-import org.apache.tapestry5.beaneditor.Validate;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -10,20 +9,19 @@ import java.io.Serializable;
 /**
  * Created by IntelliJ IDEA.
  * User: bonnefoy
- * Date: 28 oct. 2008
- * Time: 17:52:03
+ * Date: 30 oct. 2008
+ * Time: 22:52:34
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(schema = "chantier", name = "sous_traitants")
+@Table(catalog = "chantier", name = "sous_traitants")
 public class SousTraitantsEntity implements Serializable {
     private int stId;
 
     @Id
     @NonVisual
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorCommandes")
-    @SequenceGenerator(name = "generatorCommandes", sequenceName = "sous_traitants_st_id_seq")
-    @Column(name = "st_id", nullable = false, length = 10)
+    @GeneratedValue
+    @Column(name = "st_id", nullable = false, length = 8)
     public int getStId() {
         return stId;
     }
@@ -35,8 +33,7 @@ public class SousTraitantsEntity implements Serializable {
     private String stName;
 
     @Basic
-    @Validate("required=true")
-    @Column(name = "st_name")
+    @Column(name = "st_name", nullable = false)
     public String getStName() {
         return stName;
     }
@@ -49,7 +46,7 @@ public class SousTraitantsEntity implements Serializable {
 
     @Basic
     @NonVisual
-    @Column(name = "st_old", nullable = false, length = 1)
+    @Column(name = "St_old", nullable = false, length = 0)
     public boolean isStOld() {
         return stOld;
     }

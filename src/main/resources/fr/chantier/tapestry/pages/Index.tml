@@ -1,6 +1,38 @@
 <t:template xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
-      <h1>Bienvenue sur le site de commande de pizza</h1>
-
-      <p>Vous pourrer commandez vos rations de survies par l'intermédiaire de cette interface l33t</p>
-
+    <h3>
+        <a t:type="pagelink" t:page="clients/GestionClients">
+            <strong>${message:HEAD_CLIENT}:</strong>
+        </a>
+        ${message:PRESENTATION_CLIENT}
+    </h3>
+    <h3>
+        <a t:type="pagelink" t:page="sousTraitants/GestionSousTraitants">
+            <strong>${message:HEAD_SOUS_TRAITANTS}:</strong>
+        </a>
+        ${message:PRESENTATION_SOUS_TRAITANTS}
+    </h3>
+    <h3>
+        <a t:type="pagelink" t:page="intervenants/GestionIntervenants" >
+            <strong>${message:HEAD_INTERVENANTS}:</strong>
+        </a>
+        ${message:PRESENTATION_INTERVENANTS}
+    </h3>
+    <h3>
+        <a t:type="pagelink" t:page="commandes/ModificationCommandes" >
+            <strong>${message:HEAD_CREATE_COMMAND}:</strong>
+        </a>
+        ${message:PRESENTATION_CREER_COMMANDE}
+    </h3>
+    <h3>
+        <a t:type="pagelink" t:page="commandes/Selection" >
+            <strong>${message:HEAD_MODIFY_COMMAND}:</strong>
+        </a>
+        ${message:PRESENTATION_MODIFIER_COMMANDE}
+    </h3>
+    <h3>
+        <a t:type="pagelink" t:page="commandes/AffichageCommandes" >
+            <strong>${message:HEAD_DISPLAY_COMMAND}:</strong>
+        </a>
+        ${message:PRESENTATION_AFFICHER_COMMANDE}
+    </h3>
 </t:template>

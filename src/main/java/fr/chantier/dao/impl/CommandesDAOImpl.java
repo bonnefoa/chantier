@@ -5,13 +5,12 @@ import fr.chantier.model.ClientsEntity;
 import fr.chantier.model.CommandesEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.SimpleExpression;
 
-import java.util.Collection;
-import java.util.Date;
-import java.util.LinkedHashSet;
+import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,19 +25,31 @@ public class CommandesDAOImpl extends GenericHibernateDAO<CommandesEntity, Integ
         super(session);
     }
 
-    public Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, SimpleExpression simpleExpression, Date dateBefore, Date dateAfter) {
+    public CommandesEntity findById(Integer commandId) {
         Criteria crit = getSession().createCriteria(getPersistentClass());
-        if(clientsEntity != null){
+        crit.add(Restrictions.eq("commandId", commandId));
+        return (CommandesEntity) crit.uniqueResult();
+    }
+
+    public Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, SimpleExpression simpleExpression, Date date) {
+        Criteria crit = getSession().createCriteria(getPersistentClass());
+        if (clientsEntity != null) {
             crit.add(Restrictions.eq("clientsByClientId.clientId", clientsEntity.getClientId()));
         }
-        if(order != null){
+        if (order != null) {
             crit.addOrder(order);
         }
-        if(simpleExpression != null){
+        if (simpleExpression != null) {
             crit.add(simpleExpression);
         }
-        if(dateBefore != null && dateAfter != null){
-            crit.add(Restrictions.between("commandDate",dateBefore,dateAfter));
+        if (date != null) {
+            Calendar cal = new GregorianCalendar();
+            cal.setTime(date);
+            int mois = cal.get(Calendar.MONTH) + 1;
+            String moisString = (mois > 9) ? mois + "" : "0" + mois;
+            crit.add(Restrictions.sqlRestriction("Command_date LIKE '" + cal.get(Calendar.YEAR)
+                    + "-" + moisString + "%'"));
+            //ilike("commandDate", cal.get(Calendar.YEAR) + "-" + cal.get(Calendar.MONTH) + 1 + "%"));
         }
         return new LinkedHashSet(crit.list());
     }

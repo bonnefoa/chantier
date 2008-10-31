@@ -66,6 +66,7 @@ public abstract class GenericHibernateDAO<T, ID extends Serializable>
     @SuppressWarnings("unchecked")
     public T makePersistent(T entity) {
         getSession().saveOrUpdate(entity);
+        getSession().persist(entity);
         return entity;
     }
 

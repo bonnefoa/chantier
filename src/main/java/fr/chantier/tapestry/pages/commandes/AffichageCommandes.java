@@ -40,7 +40,7 @@ public class AffichageCommandes {
     @Property
     private Collection<CommandesEntity> listCommandes;
 
-    @Property
+    @Property(write = false)
     private CommandesEntity commandesEntity;
 
     @Property
@@ -64,6 +64,55 @@ public class AffichageCommandes {
      */
     @Component
     private HeaderCommand headerCommand;
+
+    /**
+     * Somme des heures pour l'entite dans la boucle
+     */
+    @Property
+    private Float sumOfHours;
+
+    /**
+     * Somme des couts de sous-traitants
+     */
+    @Property
+    private Float sumOfCost;
+
+    /**
+     * Couts des sous-traitants
+     */
+    @Property
+    private Float costOfSousTraitants;
+    /**
+     * Cout des intervenants
+     */
+    @Property
+    private Float costOfIntervenants;
+
+    /**
+     * Resultat d'une commande
+     */
+    @Property
+    private Float result;
+    /**
+     * Cout reel d'une commande
+     */
+    @Property
+    private Float realCost;
+    /**
+     * Somme des devis
+     */
+    @Property
+    private Float sumDevis = 0.f;
+    /**
+     * Somme des couts reels
+     */
+    @Property
+    private Float sumRealCost = 0.f;
+    /**
+     * Somme des resultats
+     */
+    @Property
+    private Float sumResult = 0.f;
 
     @PageLoaded
     private void onPageLoaded() {
@@ -92,40 +141,22 @@ public class AffichageCommandes {
         return intervenantsManager.findIntervenantsForCommandes(commandesEntity);
     }
 
-    public Float getRealCost() {
-        return commandesManager.getRealCost(commandesEntity);
-    }
-
-    public Float getResult() {
-        return commandesManager.getResult(commandesEntity);
-    }
-
-    public Float getSumOfCost() {
-        return commandesManager.getSumOfCostByCommandes(commandesEntity);
-    }
-
-    public Float getSumOfHours() {
-        return commandesManager.getSumOfHoursByCommandes(commandesEntity);
-    }
-
-    public Float getCostOfIntervenants() {
-        return commandesManager.getCostOfIntervenants(commandesEntity);
-    }
-
-    public Float getCostOfSousTraitants() {
-        return commandesManager.getCostOfSousTraitants(commandesEntity);
-    }
-
-    public Float getSumResult() {
-        return commandesManager.getSumResult(listCommandes);
-    }
-
-    public Float getSumRealCost() {
-        return commandesManager.getSumRealCost(listCommandes);
-    }
-
-    public Float getSumDevis() {
-        return commandesManager.getSumDevis(listCommandes);
+    /**
+     * Setter de l'entite. permet d'initialiser les differentes valeurs concernees
+     *
+     * @param commandesEntity
+     */
+    public void setCommandesEntity(CommandesEntity commandesEntity) {
+        this.commandesEntity = commandesEntity;
+        sumOfHours = commandesManager.getSumOfHoursByCommandes(commandesEntity);
+        sumOfCost = commandesManager.getSumOfCostByCommandes(commandesEntity);
+        costOfSousTraitants = sumOfCost * coefficientEntity.getStCoef();
+        costOfIntervenants = sumOfHours * coefficientEntity.getInterCoef();
+        realCost = costOfIntervenants + costOfSousTraitants;
+        result = commandesEntity.getCommandDevis() - realCost;
+        sumDevis += commandesEntity.getCommandDevis();
+        sumRealCost += realCost;
+        sumResult += result;
     }
 
     public String getListHeures() {
@@ -153,8 +184,7 @@ public class AffichageCommandes {
     }
 
     public String getDisplayResult() {
-        Float res = this.getResult();
-        return currencyColor(res);
+        return currencyColor(result);
     }
 
     public String getRecapColor() {

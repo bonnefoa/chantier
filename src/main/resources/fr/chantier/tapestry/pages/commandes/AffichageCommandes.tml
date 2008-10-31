@@ -45,10 +45,17 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="display_sommes" t:type="loop" t:source="listSousTraitants"
-                                t:value="sousTraitantsEntity">
-                                ${sousTraitantsEntity.stName} ${listSommes}
+                            <td class="display_sommes">
+                                <t:loop t:source="listSousTraitants"
+                                        t:value="sousTraitantsEntity">
+                                    ${sousTraitantsEntity.stName} ${listSommes}
+                                </t:loop>
+                                <span class="display_st_sum">
+                                    HT
+                                    <t:output t:format="decimalFormat" t:value="sumOfCost"/>
+                                </span>
                             </td>
+
                         </tr>
                     </table>
                 </td>

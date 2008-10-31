@@ -1,7 +1,6 @@
 package fr.chantier.model;
 
 import org.apache.tapestry5.beaneditor.NonVisual;
-import org.apache.tapestry5.beaneditor.Validate;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -10,20 +9,19 @@ import java.io.Serializable;
 /**
  * Created by IntelliJ IDEA.
  * User: bonnefoy
- * Date: 28 oct. 2008
- * Time: 17:52:00
+ * Date: 30 oct. 2008
+ * Time: 22:52:30
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(schema = "chantier", name = "clients")
+@Table(catalog = "chantier", name = "clients")
 public class ClientsEntity implements Serializable {
     private int clientId;
 
     @Id
     @NonVisual
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorClients")
-    @SequenceGenerator(name = "generatorClients", sequenceName = "clients_client_id_seq")
-    @Column(name = "client_id", nullable = false, length = 10)
+    @GeneratedValue
+    @Column(name = "client_id", nullable = false, length = 8)
     public int getClientId() {
         return clientId;
     }
@@ -35,8 +33,7 @@ public class ClientsEntity implements Serializable {
     private String clientName;
 
     @Basic
-    @Validate("required=true")
-    @Column(name = "client_name")
+    @Column(name = "client_name", nullable = false)
     public String getClientName() {
         return clientName;
     }
@@ -49,7 +46,7 @@ public class ClientsEntity implements Serializable {
 
     @Basic
     @NonVisual
-    @Column(name = "client_old", nullable = false, length = 1)
+    @Column(name = "client_old", nullable = false, length = 0)
     public boolean isClientOld() {
         return clientOld;
     }
@@ -78,15 +75,6 @@ public class ClientsEntity implements Serializable {
         result = 31 * result + (clientName != null ? clientName.hashCode() : 0);
         result = 31 * result + (clientOld ? 1 : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "ClientsEntity{" +
-                "clientId=" + clientId +
-                ", clientName='" + clientName + '\'' +
-                ", clientOld=" + clientOld +
-                '}';
     }
 
     private Collection<CommandesEntity> commandesesByClientId;

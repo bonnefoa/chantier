@@ -3,27 +3,26 @@ package fr.chantier.model;
 import org.apache.tapestry5.beaneditor.NonVisual;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Date;
+import java.util.Collection;
 import java.io.Serializable;
 
 /**
  * Created by IntelliJ IDEA.
  * User: bonnefoy
- * Date: 28 oct. 2008
- * Time: 17:52:01
+ * Date: 30 oct. 2008
+ * Time: 22:52:31
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(schema = "chantier", name = "commandes")
+@Table(catalog = "chantier", name = "commandes")
 public class CommandesEntity implements Serializable {
     private int commandId;
 
     @Id
     @NonVisual
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generatorCommandes")
-    @SequenceGenerator(name = "generatorCommandes", sequenceName = "commandes_command_id_seq")
-    @Column(name = "command_id", nullable = false, length = 10)
+    @GeneratedValue
+    @Column(name = "command_id", nullable = false, length = 8)
     public int getCommandId() {
         return commandId;
     }
@@ -47,7 +46,7 @@ public class CommandesEntity implements Serializable {
     private Date commandDate;
 
     @Basic
-    @Column(name = "command_date", nullable = false, length = 29, precision = 6)
+    @Column(name = "command_date", nullable = false, length = 19)
     public Date getCommandDate() {
         return commandDate;
     }
@@ -59,7 +58,7 @@ public class CommandesEntity implements Serializable {
     private String commandLibelle;
 
     @Basic
-    @Column(name = "command_libelle")
+    @Column(name = "Command_libelle")
     public String getCommandLibelle() {
         return commandLibelle;
     }
@@ -72,7 +71,7 @@ public class CommandesEntity implements Serializable {
 
     @Basic
     @NonVisual
-    @Column(name = "finalise", nullable = false, length = 1)
+    @Column(name = "finalise", nullable = false, length = 0)
     public boolean isFinalise() {
         return finalise;
     }
@@ -110,8 +109,8 @@ public class CommandesEntity implements Serializable {
 
     private ClientsEntity clientsByClientId;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "client_id", referencedColumnName = "client_id")
+    @ManyToOne
+    @JoinColumn(name = "client_id", referencedColumnName = "client_id", nullable = false)
     public ClientsEntity getClientsByClientId() {
         return clientsByClientId;
     }
