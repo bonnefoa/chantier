@@ -5,7 +5,7 @@ import fr.chantier.model.*;
 import fr.chantier.service.CoefficientManager;
 import fr.chantier.service.CommandesManager;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.SimpleExpression;
+import org.hibernate.criterion.Criterion;
 
 import java.util.Collection;
 import java.util.Date;
@@ -115,11 +115,15 @@ public class CommandesManagerImpl extends GenericHibernateManager<CommandesEntit
     }
 
 
-    public Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, SimpleExpression typeFinalise, Date dateBefore) {
+    public Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, Criterion typeFinalise, Date dateBefore) {
         return dao.findByCriterions(clientsEntity, order, typeFinalise, dateBefore);
     }
 
     public CommandesEntity findById(Integer integer) {
         return dao.findById(integer);
+    }
+
+    public Collection<CommandesEntity> findNonFinaliseAndMonth(Order order, Date date) {
+        return dao.findNonFinaliseAndMonth(order,date);
     }
 }

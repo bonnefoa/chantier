@@ -4,7 +4,7 @@
     <groupId>fr.chantier.tapestry</groupId>
     <artifactId>chantier</artifactId>
     <version>1.0</version>
-    <packaging>war</packaging>
+    <packaging>war</packaging> 
     <name>Gestionnaire de chantier</name>
 
     <dependencies>

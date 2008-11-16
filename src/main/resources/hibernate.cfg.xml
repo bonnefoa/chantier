@@ -4,10 +4,10 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://192.168.1.68/chantier</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/chantier</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.username">chantier</property>
+        <property name="hibernate.connection.password">brilla</property>
 
         <!-- pool via c3p0 which knows how to reconnect to server and does it nicely-->
         <property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>

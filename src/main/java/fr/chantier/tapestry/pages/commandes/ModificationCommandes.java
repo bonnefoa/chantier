@@ -317,9 +317,12 @@ public class ModificationCommandes {
      * @return la page de modification
      */
     @OnEvent(value = "action", component = "HistoriqueHeuresShow")
-    private Object onHistoriqueHeuresShow() {
+    private Object onHistoriqueHeuresShow(Integer commandId) {
         isDisplayHeure = !isDisplayHeure;
-        return resources.createPageLink(ModificationCommandes.class, false, commandesEntity.getCommandId());
+        if (commandId != null) {
+            return resources.createPageLink(ModificationCommandes.class, false, commandId);
+        }
+        return null;
     }
 
     /**
@@ -328,9 +331,12 @@ public class ModificationCommandes {
      * @return la page de modification
      */
     @OnEvent(value = "action", component = "HistoriqueSommesShow")
-    private Object onHistoriqueSomme() {
+    private Object onHistoriqueSomme(Integer commandId) {
         isDisplaySommes = !isDisplaySommes;
-        return resources.createPageLink(ModificationCommandes.class, false, commandesEntity.getCommandId());
+        if (commandId != null) {
+            return resources.createPageLink(ModificationCommandes.class, false, commandId);
+        }
+        return null;
     }
 
     /**
@@ -352,9 +358,9 @@ public class ModificationCommandes {
      */
     public String getLabelLienSomme() {
         if (isDisplaySommes) {
-            return "Cacher l'historique des sommes";
+            return "Cacher l'historique des sous-traitants";
         }
-        return "Afficher l'historique des sommes";
+        return "Afficher l'historique des sous-traitants";
     }
 
     /**

@@ -7,6 +7,7 @@ import fr.chantier.model.HistoriqueHeuresEntity;
 import fr.chantier.model.HistoriqueSommeEntity;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.SimpleExpression;
+import org.hibernate.criterion.Criterion;
 
 import java.util.Collection;
 import java.util.Date;
@@ -145,7 +146,7 @@ public interface CommandesManager extends GenericManager<CommandesEntity, Intege
      * @param dateBefore
      * @return
      */
-    Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, SimpleExpression typeFinalise, Date dateBefore);
+    Collection<CommandesEntity> findByCriterions(ClientsEntity clientsEntity, Order order, Criterion typeFinalise, Date dateBefore);
 
     /**
      * Cherche par l'identifiant
@@ -154,4 +155,12 @@ public interface CommandesManager extends GenericManager<CommandesEntity, Intege
      * @return
      */
     CommandesEntity findById(Integer integer);
+
+    /**
+     * Cherche par les criteres donnes
+     * @param order
+     * @param date
+     * @return
+     */
+    Collection<CommandesEntity> findNonFinaliseAndMonth(Order order, Date date);
 }

@@ -10,6 +10,7 @@ import org.apache.tapestry5.services.RequestGlobals;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Collection;
+import java.util.ArrayList;
 
 /**
  * Created by IntelliJ IDEA.
@@ -114,6 +115,13 @@ public class AffichageCommandes {
     @Property
     private Float sumResult = 0.f;
 
+    private Integer idCommand;
+
+    @OnEvent("activate")
+    private void onActivate(Integer idCommand) {
+        this.idCommand = idCommand;
+    }
+
     @PageLoaded
     private void onPageLoaded() {
         decimalFormat = (DecimalFormat) NumberFormat.getInstance(
@@ -129,7 +137,12 @@ public class AffichageCommandes {
      */
     @SetupRender
     private void setupRender() {
-        listCommandes = headerCommand.getCommandesEntityCollection();
+        if (idCommand != null) {
+            ArrayList<CommandesEntity> tmp = new ArrayList<CommandesEntity>();
+            tmp.add(commandesManager.findById(idCommand));
+        } else {
+            listCommandes = headerCommand.getCommandesEntityCollection();
+        }
         coefficientEntity = coefficientManager.findCurrentCoefficient();
     }
 

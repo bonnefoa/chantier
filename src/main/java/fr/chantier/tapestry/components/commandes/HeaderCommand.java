@@ -79,7 +79,7 @@ public class HeaderCommand {
             annee = cal.get(Calendar.YEAR);
         }
         if (typeOrdonnancement == null) {
-            typeOrdonnancement = TypeOrdonnancement.CROISSANTE;
+            typeOrdonnancement = TypeOrdonnancement.DECROISSANTE;
         }
         if (typeClassement == null) {
             typeClassement = TypeClassement.NUMERO;
@@ -124,7 +124,6 @@ public class HeaderCommand {
             commandesEntity = null;
             return temp;
         }
-        Collection<CommandesEntity> res;
         Date dateAfter = null;
         Date date = null;
         if (activateDate != null && activateDate) {
@@ -134,7 +133,12 @@ public class HeaderCommand {
             calendar.set(Calendar.MONTH, mois.getI());
             date = calendar.getTime();
         }
-        res = commandesManager.findByCriterions(clientsEntity, typeClassement.getOrder(typeOrdonnancement), typeFinalise.getSimpleExpression(), date);
-        return res;
+        if (commandesEntity != null) {
+            return commandesManager.findByCriterions(clientsEntity, typeClassement.getOrder(typeOrdonnancement), null, null);
+        }
+        if (typeFinalise.equals(TypeFinalise.COMMANDES_DU_MOIS_ET_NON_FINALISEES)) {
+            return commandesManager.findNonFinaliseAndMonth(typeClassement.getOrder(typeOrdonnancement), date);
+        }
+        return commandesManager.findByCriterions(clientsEntity, typeClassement.getOrder(typeOrdonnancement), typeFinalise.getCriterion(), date);
     }
 }

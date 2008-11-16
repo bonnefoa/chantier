@@ -1,7 +1,7 @@
 package fr.chantier.enumeration;
 
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.criterion.SimpleExpression;
+import org.hibernate.criterion.Criterion;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,15 +11,16 @@ import org.hibernate.criterion.SimpleExpression;
  * To change this template use File | Settings | File Templates.
  */
 public enum TypeFinalise {
-    FINALISE(Restrictions.eq("finalise", true)), NON_FINALISEE(Restrictions.eq("finalise", false)), LES_DEUX(null);
+    FINALISE(Restrictions.eq("finalise", true)), NON_FINALISEE(Restrictions.eq("finalise", false)), LES_DEUX(null),
+    COMMANDES_DU_MOIS_ET_NON_FINALISEES(Restrictions.eq("finalise", false));
 
-    private SimpleExpression simpleExpression;
+    private Criterion criterion;
 
-    TypeFinalise(SimpleExpression simpleExpression) {
-        this.simpleExpression = simpleExpression;
+    TypeFinalise(Criterion criterion) {
+        this.criterion = criterion;
     }
 
-    public SimpleExpression getSimpleExpression() {
-        return simpleExpression;
+    public Criterion getCriterion() {
+        return criterion;
     }
 }

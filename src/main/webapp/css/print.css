@@ -164,7 +164,7 @@ h6, .display_heures, .display_sommes {
 
 .head_table_display {
     height: 4cm;
-    width: 19.6cm;
+    width: 19cm;
     table-layout: fixed;
     empty-cells: show;
 }
