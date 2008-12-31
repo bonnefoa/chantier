@@ -32,6 +32,14 @@
             </tr>
             <tr>
                 <td colspan="10">
+                    <a t:type="pagelink" t:page="commandes/ModificationCommandes"
+                       t:context="commandesEntity.commandId">Modifier la commande
+                        n°${commandesEntity.commandId}
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="10">
                     ${commandesEntity.commandLibelle}
                 </td>
             </tr>

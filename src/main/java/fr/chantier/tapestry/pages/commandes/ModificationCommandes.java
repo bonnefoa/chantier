@@ -4,6 +4,7 @@ import fr.chantier.enumeration.Mois;
 import fr.chantier.model.*;
 import fr.chantier.service.*;
 import org.apache.tapestry5.ComponentResources;
+import org.apache.tapestry5.Link;
 import org.apache.tapestry5.annotations.*;
 import org.apache.tapestry5.beaneditor.BeanModel;
 import org.apache.tapestry5.corelib.components.Form;
@@ -47,6 +48,8 @@ public class ModificationCommandes {
 
     @Inject
     private BeanModelSource beanModelSource;
+
+    private boolean toPassivate;
 
     /**
      * Boolean d'etat de la page
@@ -145,6 +148,12 @@ public class ModificationCommandes {
 
     @Inject
     private Response response;
+
+    /**
+     * Resultat de la recherche par Identifiant
+     */
+    @Property
+    private Integer inputSearch;
 
     /**
      * Initialisation du model
@@ -392,4 +401,18 @@ public class ModificationCommandes {
         return formatHeuresEtMinutes(commandesManager.getSumOfHoursByCommandes(commandesEntity));
     }
 
+    /**
+     * Recherche de client par le formulaire
+     */
+    @OnEvent(component = "rechercheCommandeForm", value = Form.SUCCESS)
+    private void onSuccessFromRechercheClientForm() {
+        toPassivate = true;
+    }
+
+    private Integer onPassivate() {
+        if (toPassivate) {
+            return inputSearch;
+        }
+        return null;
+    }
 }

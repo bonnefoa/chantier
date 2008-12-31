@@ -47,13 +47,6 @@ public class SelectionCommandes {
     @Property(write = false)
     private boolean suppressionChecked;
 
-    /**
-     * Recuperation de la liste de commande au chargement
-     */
-    @SetupRender
-    private void onSetupRender() {
-    }
-
     public Float getRealCost() {
         tempRealCost = commandesManager.getRealCost(commandesEntity);
         return tempRealCost;

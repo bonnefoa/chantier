@@ -6,6 +6,11 @@
                 Création de la commande
             </t:parameter>
         </t:if>
+        <form t:type="form" t:id="rechercheCommandeForm">
+            <t:label t:for="rechercheClient">Rechercher par un numéro de commande :</t:label>
+            <t:textfield t:id="rechercheClient" t:value="inputSearch"/>
+            <t:submit t:value="Cherchez"/>
+        </form>
     </h3>
     <t:if t:test="isModification">
         <h3 class="text_align">
