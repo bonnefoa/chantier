@@ -184,7 +184,7 @@ public class AffichageCommandes {
             }
             res.append(" + ");
         }
-        return res.substring(0, res.length() - 1);
+        return res.substring(0, res.length() - 3);
     }
 
     public String getListSommes() {

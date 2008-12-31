@@ -157,7 +157,7 @@ h3 {
 /* Partie Display */
 h6, .display_heures, .display_sommes {
    font-stretch: extra-condensed;
-   word-spacing: 2px;
+   word-spacing: 1px;
    font-style: normal;
    font-weight: normal;
    font-size: small;
