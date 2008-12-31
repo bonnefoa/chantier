@@ -14,6 +14,7 @@ import org.apache.tapestry.commons.components.InPlaceEditor;
 
 import java.util.List;
 import java.util.Collection;
+import java.util.ArrayList;
 
 /**
  * Created by IntelliJ IDEA.
@@ -38,6 +39,8 @@ public class GestionSousTraitants extends GestionEntite {
 
     @Inject
     private CoefficientManager coefficientManager;
+
+    private List<SousTraitantsEntity> sousTraitantsToDelete;
 
     @SetupRender
     private void onSetupRender() {
@@ -72,5 +75,39 @@ public class GestionSousTraitants extends GestionEntite {
         SousTraitantsEntity entite = sousTraitantsManager.findById(stId, false);
         entite.setStName(nomSousTraitants);
         sousTraitantsManager.makePersistent(entite);
+    }
+
+    @OnEvent(component = "stForm", value = Form.PREPARE_FOR_SUBMIT)
+    private void onPrepareForSubmit() {
+        sousTraitantsToDelete = new ArrayList<SousTraitantsEntity>();
+    }
+
+    public boolean getSelected() {
+        return false;
+    }
+
+    public void setSelected(boolean checked) {
+        if(checked){
+            sousTraitantsToDelete.add(sousTraitantRow);
+        }
+    }
+
+    public String getStName() {
+        return sousTraitantRow.getStName();
+    }
+
+    public void setStName(String input) {
+        if (!sousTraitantRow.getStName().equals(input)) {
+            sousTraitantRow.setStName(input);
+            sousTraitantsManager.makePersistent(sousTraitantRow);
+        }
+    }
+
+    @OnEvent(component = "stForm", value = Form.SUCCESS)
+    private void onSuccessFromStForm() {
+        for (SousTraitantsEntity entity : sousTraitantsToDelete) {
+            entity.setStOld(true);
+            sousTraitantsManager.makePersistent(entity);
+        }
     }
 }
