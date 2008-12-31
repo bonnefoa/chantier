@@ -11,6 +11,8 @@ import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by IntelliJ IDEA.
@@ -35,6 +37,8 @@ public class GestionClients {
     @Inject
     private ClientsManager clientsManager;
 
+    private List<ClientsEntity> clientsToDeletes;
+
     /**
      * Au rendu de la page
      */
@@ -51,29 +55,40 @@ public class GestionClients {
         clientsManager.makePersistent(client);
     }
 
-    /**
-     * Suppression d'un client
-     *
-     * @param idClient Identifiant du client a supprimer
-     */
-    @OnEvent(value = "action",component = "deleteClient")
-    private void onDeleteClient(Integer idClient) {
-        ClientsEntity temp = clientsManager.findById(idClient, false);
-        temp.setClientOld(true);
-        clientsManager.makePersistent(temp);
+    @OnEvent(component = "clientForm", value = Form.PREPARE_FOR_SUBMIT)
+    private void prepareForSubmit() {
+        clientsToDeletes = new ArrayList<ClientsEntity>();
     }
 
     /**
-     * Modification du nom du client
-     *
-     * @param clientId
-     * @param clientName
+     * Au succes du formulaire, mise a jour des clients a archiver
      */
-    @OnEvent(component = "inPlaceEditor", value = InPlaceEditor.SAVE_EVENT)
-    void actionFromEditor(Integer clientId, String clientName) {
-        ClientsEntity entite = clientsManager.findById(clientId, false);
-        entite.setClientName(clientName);
-        clientsManager.makePersistent(entite);
+    @OnEvent(value = Form.SUCCESS, component = "clientForm")
+    private void onSuccessFromClientForm() {
+        for (ClientsEntity delete : clientsToDeletes) {
+            delete.setClientOld(true);
+            clientsManager.makePersistent(delete);
+        }
     }
 
+    public boolean getSuppressClient() {
+        return false;
+    }
+
+    public void setSuppressClient(boolean checked) {
+        if (checked) {
+            clientsToDeletes.add(clientRow);
+        }
+    }
+
+    public String getClientNameField() {
+        return clientRow.getClientName();
+    }
+
+    public void setClientNameField(String input) {
+        if (!input.equals(clientRow.getClientName())) {
+            clientRow.setClientName(input);
+            clientsManager.makePersistent(clientRow);
+        }
+    }
 }

@@ -2,15 +2,44 @@
     <h1>Création d'un client</h1>
     <t:beaneditform t:id="client" exclude="clientOld" t:object="client" submitlabel="Créer le client"/>
     <h1>Modification de clients</h1>
-    <t:grid t:source="clientsEntityList" t:row="clientRow" t:id="clientGrid" t:add="suppression">
-        <t:parameter name="clientNameCell">
-            <div t:type="commons/InPlaceEditor" t:value="clientRow.clientName"
-                 t:id="inPlaceEditor" t:context="clientRow.clientId" t:validate="required"/>            
-        </t:parameter>
-        <t:parameter name="suppressionCell">
-            <a t:type="actionlink" t:id="deleteClient" t:context="clientRow.clientId">
-                Supprimer
-            </a>
-        </t:parameter>
-    </t:grid>
+
+    <t:form t:id="clientForm">
+        <table class="head_table" border="1" cellpadding="2" cellspacing="0">
+            <caption>
+                ${message:C_EDIT}
+            </caption>
+            <thead>
+                <tr>
+                    <th>
+                        ${message:C_NAME}:
+                    </th>
+                    <th>
+                        ${message:C_SUPPR}:
+                    </th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th colspan="3" align="center">
+                        <input t:type="submit"/>
+                    </th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <!-- BEGIN user -->
+                <tr t:type="loop" t:source="clientsEntityList" t:value="clientRow">
+                    <td class="clients_row">
+                        <input t:type="textfield" size="25" maxlength="25"
+                               t:value="clientNameField"/>
+                    </td>
+                    <td class="clients_row">
+                        <label>Supprimer ce client de la liste
+                            <input t:type="checkbox" t:value="suppressClient"/>
+                        </label>
+                    </td>
+                </tr>
+                <!-- END user -->
+            </tbody>
+        </table>
+    </t:form>
 </t:template>
