@@ -239,6 +239,11 @@ h6, .display_heures, .display_sommes {
     width: 1%;
 }
 
+.display_sides {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
 .display_bottom {
     border-bottom: 1px solid black;
 }

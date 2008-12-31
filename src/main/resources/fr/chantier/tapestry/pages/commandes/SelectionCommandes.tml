@@ -1,5 +1,5 @@
 <t:template xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
-    <div t:type="commandes/headerCommand" />
+    <div t:type="commandes/headerCommand"/>
     <form t:type="form" t:id="modifierCommandesForm">
         <table class="head_table">
             <thead>
@@ -21,7 +21,8 @@
                 <t:loop t:source="listeCommandes" t:value="commandesEntity">
                     <tr class="display_line_top">
                         <td class="display_1">Commande n°:</td>
-                        <td class="display_2"><span class="display_text">${commandesEntity.commandId}</span>
+                        <td class="display_2">
+                            <span class="display_text">${commandesEntity.commandId}</span>
                         </td>
                         <td class="display_3">
                             Client :
@@ -59,8 +60,15 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="display_line_bottom" colspan="13">
+                        <td class="display_side displayNone" colspan="13">
                             ${commandesEntity.commandLibelle}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="display_line_bottom" colspan="13">
+                            <a t:type="pageLink" t:page="commandes/Affichage" t:context="commandesEntity.commandId">
+                                Afficher la commande
+                            </a>
                         </td>
                     </tr>
                 </t:loop>
