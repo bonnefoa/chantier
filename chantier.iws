@@ -82,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AffichageCommandes.tml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AffichageCommandes.tml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/commandes/AffichageCommandes.tml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="21" selection-start="1858" selection-end="1858" vertical-scroll-proportion="-0.17122301">
+            <state line="38" column="21" selection-start="1858" selection-end="1858" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -100,10 +100,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AffichageCommandes.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AffichageCommandes.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/pages/commandes/AffichageCommandes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="13" selection-start="610" selection-end="610" vertical-scroll-proportion="0.0">
+            <state line="140" column="12" selection-start="3168" selection-end="3168" vertical-scroll-proportion="-0.95">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommandesManagerImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/CommandesManagerImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="110" column="0" selection-start="4514" selection-end="4514" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -928,13 +937,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/pages/commandes/AffichageCommandes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="13" selection-start="610" selection-end="610" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/components/Template.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -972,7 +974,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/commandes/AffichageCommandes.tml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="21" selection-start="1858" selection-end="1858" vertical-scroll-proportion="-0.17122301">
+        <state line="38" column="21" selection-start="1858" selection-end="1858" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/CommandesManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="0" selection-start="4514" selection-end="4514" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/pages/commandes/AffichageCommandes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="140" column="12" selection-start="3168" selection-end="3168" vertical-scroll-proportion="-0.95">
           <folding />
         </state>
       </provider>

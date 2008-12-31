@@ -138,8 +138,8 @@ public class AffichageCommandes {
     @SetupRender
     private void setupRender() {
         if (idCommand != null) {
-            ArrayList<CommandesEntity> tmp = new ArrayList<CommandesEntity>();
-            tmp.add(commandesManager.findById(idCommand));
+            listCommandes = new ArrayList<CommandesEntity>();
+            listCommandes.add(commandesManager.findById(idCommand));
         } else {
             listCommandes = headerCommand.getCommandesEntityCollection();
         }
