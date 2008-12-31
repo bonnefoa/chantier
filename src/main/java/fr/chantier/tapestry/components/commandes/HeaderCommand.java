@@ -8,13 +8,14 @@ import fr.chantier.model.ClientsEntity;
 import fr.chantier.model.CommandesEntity;
 import fr.chantier.service.ClientsManager;
 import fr.chantier.service.CommandesManager;
-import org.apache.tapestry5.annotations.OnEvent;
-import org.apache.tapestry5.annotations.PageLoaded;
-import org.apache.tapestry5.annotations.Persist;
-import org.apache.tapestry5.annotations.Property;
+import fr.chantier.tools.EncoderBase64;
+import org.apache.tapestry5.annotations.*;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.RequestGlobals;
 
+import javax.servlet.http.Cookie;
 import java.util.*;
 
 /**
@@ -32,31 +33,34 @@ public class HeaderCommand {
     @Inject
     private ClientsManager clientsManager;
 
+    @Inject
+    private RequestGlobals requestGlobals;
+
+    @Inject
+    private Request request;
+
+    @Retain
+    private EncoderBase64 encoder;
+
     @Property
-    @Persist("cookie")
     private TypeClassement typeClassement;
 
     @Property
-    @Persist("cookie")
     private TypeOrdonnancement typeOrdonnancement;
 
     @Property
-    @Persist("cookie")
     private TypeFinalise typeFinalise;
 
     /**
      * Boolean pour l'activation de la selection des commandes par date
      */
     @Property
-    @Persist("cookie")
     private Boolean activateDate;
 
     @Property
-    @Persist("cookie")
     private Mois mois;
 
     @Property
-    @Persist("cookie")
     private Integer annee;
 
     private Calendar calendar;
@@ -66,12 +70,13 @@ public class HeaderCommand {
 
     @Persist("entity")
     private CommandesEntity commandesEntity;
-
     @Property
     private String inputSearch;
 
     @PageLoaded
     private void onPageLoaded() {
+        encoder = new EncoderBase64();
+        initCookies();
         if (mois == null || annee == null) {
             activateDate = true;
             Calendar cal = Calendar.getInstance();
@@ -87,12 +92,64 @@ public class HeaderCommand {
         if (typeFinalise == null) {
             typeFinalise = TypeFinalise.LES_DEUX;
         }
+        writeCookies();
+    }
+
+    private void initCookies() {
+        mois = (Mois) getCookieValue(Mois.class.getCanonicalName());
+        annee = (Integer) getCookieValue("Annee");
+        typeOrdonnancement = (TypeOrdonnancement) getCookieValue(TypeOrdonnancement.class.getCanonicalName());
+        typeClassement = (TypeClassement) getCookieValue(TypeClassement.class.getCanonicalName());
+        typeFinalise = (TypeFinalise) getCookieValue(TypeFinalise.class.getCanonicalName());
+        activateDate = (Boolean) getCookieValue("activateDate");
+    }
+
+
+    private void writeCookies() {
+        createCookie(Mois.class.getCanonicalName(), encoder.toClient(mois));
+        createCookie("Annee", encoder.toClient(annee));
+        createCookie(TypeOrdonnancement.class.getCanonicalName(), encoder.toClient(typeOrdonnancement));
+        createCookie(TypeClassement.class.getCanonicalName(), encoder.toClient(typeClassement));
+        createCookie(TypeFinalise.class.getCanonicalName(), encoder.toClient(typeFinalise));
+        createCookie("activateDate",encoder.toClient(activateDate));
+    }
+
+    private void createCookie(String name, String value) {
+        Cookie cookie = new Cookie(name, value);
+        cookie.setPath(request.getContextPath());
+        requestGlobals.getHTTPServletResponse().addCookie(cookie);
+    }
+
+    private Object getCookieValue(String name) {
+        Cookie cookie = getCookie(name);
+        if (cookie != null) {
+            return encoder.toValue(cookie.getValue());
+        }
+        return null;
+    }
+
+    private Cookie getCookie(String name) {
+        Cookie cookies[] = requestGlobals.getHTTPServletRequest().getCookies();
+        if (cookies != null) {
+            for (Cookie cooky : cookies) {
+                if (cooky.getName().equals(name)) {
+                    return cooky;
+                }
+            }
+        }
+        return null;
+    }
+
+    @OnEvent(component = "classementForm", value = Form.SUCCESS)
+    private void onSuccessFromClassementForm() {
+        writeCookies();
     }
 
     /**
      * Proposition d'une liste  de choix lors de la recherche de client
      *
      * @param input
+     *
      * @return
      */
     @OnEvent(component = "rechercheClient", value = "providecompletions")
@@ -118,6 +175,7 @@ public class HeaderCommand {
      * @return
      */
     public Collection<CommandesEntity> getCommandesEntityCollection() {
+        initCookies();
         if (commandesEntity != null) {
             ArrayList<CommandesEntity> temp = new ArrayList<CommandesEntity>();
             temp.add(commandesEntity);
