@@ -59,19 +59,19 @@
                             <input t:type="checkbox" t:id="suppressionCheckbox" t:value="suppressionChecked"/>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="display_side displayNone" colspan="13">
-                            ${commandesEntity.commandLibelle}
-                        </td>
-                    </tr>
-                    <tr>
+                    <tr class="display_sides">
                         <td colspan="10">
 
                         </td>
-                        <td class="display_line_bottom" colspan="3">
+                        <td colspan="3">
                             <a t:type="pageLink" t:page="commandes/Affichage" t:context="commandesEntity.commandId">
                                 Afficher la commande
                             </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="display_line_bottom" colspan="13">
+                            ${commandesEntity.commandLibelle}
                         </td>
                     </tr>
                 </t:loop>
