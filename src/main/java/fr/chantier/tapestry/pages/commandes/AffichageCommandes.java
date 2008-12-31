@@ -182,7 +182,7 @@ public class AffichageCommandes {
             if (dec > 0) {
                 res.append("<sup>" + dec + "</sup>");
             }
-            res.append("+");
+            res.append(" + ");
         }
         return res.substring(0, res.length() - 1);
     }

@@ -65,7 +65,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="display_line_bottom" colspan="13">
+                        <td colspan="10">
+
+                        </td>
+                        <td class="display_line_bottom" colspan="3">
                             <a t:type="pageLink" t:page="commandes/Affichage" t:context="commandesEntity.commandId">
                                 Afficher la commande
                             </a>
