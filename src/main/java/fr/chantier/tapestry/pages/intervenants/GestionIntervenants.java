@@ -12,6 +12,8 @@ import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,7 +22,7 @@ import java.util.Collection;
  * Time: 3:55:25 PM
  * To change this template use File | Settings | File Templates.
  */
-public class GestionIntervenants extends GestionEntite{
+public class GestionIntervenants extends GestionEntite {
 
     @Property
     private IntervenantsEntity intervenant;
@@ -36,6 +38,8 @@ public class GestionIntervenants extends GestionEntite{
 
     @Inject
     private CoefficientManager coefficientManager;
+
+    private List<IntervenantsEntity> interToDelete;
 
     /**
      * Initialisation des variables au rendu de la page
@@ -53,50 +57,31 @@ public class GestionIntervenants extends GestionEntite{
         intervenantsManager.makePersistent(intervenant);
     }
 
-    /**
-     * Suppression de l'intervenant
-     *
-     * @param idIntervenants
-     */
-    @OnEvent(value = "action")
-    private void onActionLink(Integer idIntervenants) {
-        IntervenantsEntity temp = intervenantsManager.findById(idIntervenants, false);
-        temp.setInterOld(true);
-        intervenantsManager.makePersistent(temp);
+    @OnEvent(component = "interForm",value = Form.PREPARE_FOR_SUBMIT)
+    private void onPrepareSubmit() {
+        interToDelete = new ArrayList<IntervenantsEntity>();
     }
 
-
-    /**
-     * Modification du nom de l'intervenant
-     *
-     * @param interId
-     * @param nomIntervenant
-     */
-    @OnEvent(component = "inPlaceEditor", value = InPlaceEditor.SAVE_EVENT)
-    void actionFromEditor(Integer interId, String nomIntervenant) {
-        IntervenantsEntity entite = intervenantsManager.findById(interId, false);
-        entite.setInterName(nomIntervenant);
-        intervenantsManager.makePersistent(entite);
+    public boolean getSelected() {
+        return false;
     }
 
-    /**
-     * Modificiation de l'ordre
-     *
-     * @param interId
-     * @param ordre
-     */
-    @OnEvent(component = "inPlaceEditorOrdre", value = InPlaceEditor.SAVE_EVENT)
-    void actionFromEditorOrdre(Integer interId, String ordre) {
-        short ordreShort;
-        try {
-            ordreShort = Short.parseShort(ordre);
-        } catch (NumberFormatException e) {
-            ordreShort = 1;
+    public void setSelected(boolean checked) {
+        if (checked) {
+            interToDelete.add(intervenantRow);
         }
-        IntervenantsEntity entite = intervenantsManager.findById(interId, false);
-        entite.setInterOrdre(ordreShort);
-        intervenantsManager.makePersistent(entite);
     }
 
+    @OnEvent("afterSubmit")
+    private void onAfterSubmit() {
+        intervenantsManager.makePersistent(intervenantRow);
+    }
 
+    @OnEvent(value = Form.SUCCESS, component = "interForm")
+    private void onSuccessFromInterForm() {
+        for (IntervenantsEntity entity : interToDelete) {
+            entity.setInterOld(true);
+            intervenantsManager.makePersistent(entity);
+        }
+    }
 }

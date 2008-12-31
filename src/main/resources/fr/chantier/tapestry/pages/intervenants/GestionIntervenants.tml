@@ -1,25 +1,54 @@
 <t:template xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
-
     <h1>Création d'un intervenant</h1>
     <t:beaneditform t:id="intervenants" t:object="intervenant" submitlabel="Créer l'intervenant"/>
-
     <h1>Modification des intervenants</h1>
-    <t:grid t:source="intervenantsEntityList" t:row="intervenantRow" t:add="suppression">
-        <t:parameter name="interNameCell">
-            <div t:type="commons/InPlaceEditor" t:value="intervenantRow.interName"
-                 t:id="inPlaceEditor" t:context="intervenantRow.interId"/>
-        </t:parameter>
-        <t:parameter name="interOrdreCell">
-            <div t:type="commons/InPlaceEditor" t:value="intervenantRow.interOrdre"
-                 t:id="inPlaceEditorOrdre" t:context="intervenantRow.interId"/>
-        </t:parameter>
-        <t:parameter name="suppressionCell">
-            <a t:type="actionlink" t:context="intervenantRow.interId">
-                Supprimer
-            </a>
-        </t:parameter>
-    </t:grid>
-
+    <t:form t:id="interForm">
+        <table class="head_table_intervenants" border="1" cellpadding="2" cellspacing="0">
+            <caption>
+                ${message:I_EDIT}
+            </caption>
+            <thead>
+                <tr>
+                    <th>
+                        ${message:I_NAME}:
+                    </th>
+                    <th>
+                        Ordre de l'intervenants
+                    </th>
+                    <th>
+                        Suppression de l'intervenant:
+                    </th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th colspan="3" align="center">
+                        <input t:type="submit" value="message:S_EDIT"/>
+                    </th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <!-- BEGIN user -->
+                <tr t:type="loop" t:source="intervenantsEntityList" t:value="intervenantRow">
+                    <t:submitNotifier>
+                        <td class="intervenants_row">
+                            <input t:type="textfield" size="25" maxlength="25"
+                                   value="intervenantRow.interName"/>
+                        </td>
+                        <td>
+                            <input t:type="textField" value="intervenantRow.interOrdre"/>
+                        </td>
+                        <td class="intervenants_row">
+                            <label>Supprimer cet intervenant de la liste
+                                <input t:type="checkbox" value="selected"/>
+                            </label>
+                        </td>
+                    </t:submitNotifier>
+                </tr>
+                <!-- END user -->
+            </tbody>
+        </table>
+    </t:form>
     <h1>Modification des coefficients</h1>
     <t:beaneditform t:id="coefficientForm" t:object="coefficientEntity" submitlabel="Modifier les coefficients"/>
 </t:template>
