@@ -73,10 +73,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HeaderCommand.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HeaderCommand.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/components/commandes/HeaderCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="177" column="22" selection-start="5479" selection-end="5479" vertical-scroll-proportion="1.2820144">
+            <state line="183" column="22" selection-start="5562" selection-end="5562" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,37 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SelectionCommandes.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/pages/commandes/SelectionCommandes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="0" selection-start="2905" selection-end="2905" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CookiePersistentField.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/base/CookiePersistentField.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="42" selection-start="1979" selection-end="1979" vertical-scroll-proportion="-20.36">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EncoderBase64.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tools/EncoderBase64.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="23" selection-start="849" selection-end="849" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HeaderCommand.tml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="HeaderCommand.tml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/components/commandes/HeaderCommand.tml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="44" selection-start="129" selection-end="143" vertical-scroll-proportion="0.0">
+            <state line="2" column="44" selection-start="129" selection-end="143" vertical-scroll-proportion="0.048920862">
               <folding />
             </state>
           </provider>
@@ -894,13 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/components/commandes/HeaderCommand.tml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="44" selection-start="129" selection-end="143" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/pages/commandes/SelectionCommandes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="97" column="0" selection-start="2905" selection-end="2905" vertical-scroll-proportion="0.0">
@@ -910,10 +876,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/components/commandes/HeaderCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="22" selection-start="5479" selection-end="5479" vertical-scroll-proportion="1.2820144">
+        <state line="183" column="22" selection-start="5562" selection-end="5562" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/components/commandes/HeaderCommand.tml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="44" selection-start="129" selection-end="143" vertical-scroll-proportion="0.048920862">
+          <folding />
         </state>
       </provider>
     </entry>

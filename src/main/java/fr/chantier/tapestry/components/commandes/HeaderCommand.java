@@ -140,6 +140,12 @@ public class HeaderCommand {
         return null;
     }
 
+    @SetupRender
+    private void onSetupRender() {
+        initCookies();
+    }
+
+
     @OnEvent(component = "classementForm", value = Form.SUCCESS)
     private void onSuccessFromClassementForm() {
         writeCookies();
@@ -175,7 +181,7 @@ public class HeaderCommand {
      * @return
      */
     public Collection<CommandesEntity> getCommandesEntityCollection() {
-        initCookies();
+        initCookies();        
         if (commandesEntity != null) {
             ArrayList<CommandesEntity> temp = new ArrayList<CommandesEntity>();
             temp.add(commandesEntity);
