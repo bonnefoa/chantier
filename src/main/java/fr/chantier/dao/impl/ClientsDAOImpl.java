@@ -32,7 +32,7 @@ public class ClientsDAOImpl extends GenericHibernateDAO<ClientsEntity, Integer> 
     public Collection<ClientsEntity> findByName(String input) {
         Criteria crit = getSession().createCriteria(getPersistentClass());
         crit.add(Restrictions.eq("clientOld", false));
-        crit.add(Restrictions.ilike("clientName", "%" + input + "%"));
+        crit.add(Restrictions.ilike("clientName", input + "%"));
         crit.addOrder(Order.asc("clientName"));
         return new LinkedHashSet(crit.list());
     }
