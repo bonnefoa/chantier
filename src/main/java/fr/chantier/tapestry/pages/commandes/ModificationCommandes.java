@@ -258,10 +258,14 @@ public class ModificationCommandes {
      */
     public String getHeuresEtMinutes() {
         Float res = intervenantsManager.getSumOfHoursForCommand(intervenantsEntity, commandesEntity);
+        return formatHeuresEtMinutes(res);
+    }
+
+    private String formatHeuresEtMinutes(Float heuresFloat) {
         int heures;
         int minutes;
-        heures = (int) Math.floor(res);
-        minutes = (int) ((res - heures) * 60);
+        heures = (int) Math.floor(heuresFloat);
+        minutes = (int) ((heuresFloat - heures) * 60);
         return heures + " heures " + minutes + " minutes";
     }
 
@@ -382,6 +386,10 @@ public class ModificationCommandes {
      */
     public void setCommandDevis(Float inDevis) {
         commandesEntity.setCommandDevis(inDevis);
+    }
+
+    public String getTotalHours() {
+        return formatHeuresEtMinutes(commandesManager.getSumOfHoursByCommandes(commandesEntity));
     }
 
 }

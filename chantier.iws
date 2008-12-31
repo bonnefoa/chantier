@@ -73,21 +73,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HeaderCommand.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/components/commandes/HeaderCommand.java">
+      <file leaf-file-name="ModificationCommandes.tml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/commandes/ModificationCommandes.tml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="183" column="22" selection-start="5562" selection-end="5562" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="78" column="42" selection-start="3543" selection-end="3543" vertical-scroll-proportion="-23.4">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeaderCommand.tml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/components/commandes/HeaderCommand.tml">
+      <file leaf-file-name="ModificationCommandes.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/pages/commandes/ModificationCommandes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="44" selection-start="129" selection-end="143" vertical-scroll-proportion="0.048920862">
+            <state line="391" column="96" selection-start="11466" selection-end="11466" vertical-scroll-proportion="0.7798561">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommandesManagerImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/CommandesManagerImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="58" selection-start="2169" selection-end="2169" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -207,6 +214,58 @@
         </PATH_ELEMENT>
         <PATH_ELEMENT>
           <option name="myItemId" value="pages" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="chantier" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="chantier" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="fr.chantier" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="tapestry" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="pages" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="commandes" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="chantier" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="chantier" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="fr.chantier" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="tapestry" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="pages" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="clients" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -776,34 +835,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/clients/GestionClients.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="19" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/pages/clients/GestionClients.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="9" selection-start="2528" selection-end="2528" vertical-scroll-proportion="0.9266187">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/clients/GestionClients.tml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="55" selection-start="1224" selection-end="1239" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/intervenants/GestionIntervenants.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="614" selection-end="614" vertical-scroll-proportion="0.41582733">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/intervenants/GestionIntervenants.tml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="34" selection-start="914" selection-end="914" vertical-scroll-proportion="0.11942446">
@@ -874,6 +905,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/components/commandes/HeaderCommand.tml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="44" selection-start="129" selection-end="143" vertical-scroll-proportion="0.033106133">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/components/commandes/HeaderCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="183" column="22" selection-start="5562" selection-end="5562" vertical-scroll-proportion="0.0">
@@ -883,9 +921,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/components/commandes/HeaderCommand.tml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/clients/GestionClients.tml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="44" selection-start="129" selection-end="143" vertical-scroll-proportion="0.048920862">
+        <state line="32" column="55" selection-start="1224" selection-end="1239" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/impl/CommandesManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="58" selection-start="2169" selection-end="2169" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/commandes/ModificationCommandes.tml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="42" selection-start="3543" selection-end="3543" vertical-scroll-proportion="-23.4">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/pages/commandes/ModificationCommandes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="391" column="96" selection-start="11466" selection-end="11466" vertical-scroll-proportion="0.7798561">
           <folding />
         </state>
       </provider>

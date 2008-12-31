@@ -10,7 +10,8 @@
     <t:if t:test="isModification">
         <h3 class="text_align">
             <a t:type="actionlink" t:context="commandesEntity.commandId" t:id="HistoriqueHeuresShow">${labelLienHeure}
-            </a> - 
+            </a>
+            -
             <a t:type="actionlink" t:context="commandesEntity.commandId" t:id="HistoriqueSommesShow">${labelLienSomme}
             </a>
         </h3>
@@ -23,7 +24,7 @@
             </t:label>
             <t:textfield t:id="commandDevis" t:value="commandDevis"/>
             €
-             - Mois de facturation :
+            - Mois de facturation :
             <t:select t:id="mois" t:blankoption="never" t:value="mois"/>
             <t:textfield t:id="annee" t:value="annee" t:validate="regexp"/>
         </t:parameter>
@@ -73,6 +74,11 @@
                         <t:delegate to="block:historiqueHeuresBlock"/>
                     </t:if>
                 </t:loop>
+                <tr t:type="if" t:test="isModification">
+                    <td colspan="3">
+                        Heures totales : ${totalHours}
+                    </td>
+                </tr>
             </table>
         </t:parameter>
         <t:parameter name="historiqueSommes">
