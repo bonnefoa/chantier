@@ -86,7 +86,7 @@ public class HeaderCommand {
         typeClassement = (TypeClassement) getCookieValue(TypeClassement.class.getCanonicalName());
         typeFinalise = (TypeFinalise) getCookieValue(TypeFinalise.class.getCanonicalName());
         activateDate = (Boolean) getCookieValue("activateDate");
-        if (activateDate && (mois == null || annee == null)) {
+        if (activateDate == null || (activateDate && (mois == null || annee == null))) {
             Calendar cal = Calendar.getInstance();
             mois = Mois.lookup(cal.get(Calendar.MONTH));
             annee = cal.get(Calendar.YEAR);
