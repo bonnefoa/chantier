@@ -82,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="41" selection-start="2076" selection-end="2076" vertical-scroll-proportion="-4.76">
+            <state line="68" column="8" selection-start="2531" selection-end="2716" vertical-scroll-proportion="0.55284554">
               <folding />
             </state>
           </provider>
@@ -109,10 +109,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeaderCommand.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HeaderCommand.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/components/commandes/HeaderCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="86" selection-start="2538" selection-end="2538" vertical-scroll-proportion="0.56462586">
+            <state line="208" column="12" selection-start="6550" selection-end="6550" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HeaderCommand.tml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/components/commandes/HeaderCommand.tml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AffichageCommandes.tml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/commandes/AffichageCommandes.tml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="30" selection-start="1678" selection-end="1678" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SelectionCommandes.tml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/commandes/SelectionCommandes.tml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="38" selection-start="3140" selection-end="3140" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -468,18 +495,18 @@
     </navigator>
   </component>
   <component name="PropertiesComponent">
-    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="RunManagerConfig.showSettingsBeforeRunnig" value="false" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="TEMP_MODULE_EXPLODED_DIR_FOR_chantier/web/Web" value="C:\Documents and Settings\bonnefoy\Local Settings\Temp\webExplodedDir18466tmp" />
     <property name="MemberChooser.showClasses" value="true" />
-    <property name="GoToClass.includeLibraries" value="false" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -790,6 +817,10 @@
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="StarteamConfiguration">
@@ -840,7 +871,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1918" height="1174" extended-state="6" />
+    <frame x="0" y="1" width="1918" height="1174" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" />
@@ -856,12 +887,12 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3259587" sideWeight="0.5" order="6" side_tool="false" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24909747" sideWeight="0.5" order="1" side_tool="false" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3998195" sideWeight="0.5" order="0" side_tool="false" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16746923" sideWeight="0.7371917" order="5" side_tool="false" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20652756" sideWeight="0.7371917" order="0" side_tool="false" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16960941" sideWeight="0.7371917" order="5" side_tool="false" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17281969" sideWeight="0.7371917" order="0" side_tool="false" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" />
       <window_info id="Web Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.256167" sideWeight="0.5" order="5" side_tool="false" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.256167" sideWeight="0.5" order="5" side_tool="false" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24948665" sideWeight="0.5" order="1" side_tool="false" />
       <window_info id="Maven Runner Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3960396" sideWeight="0.5" order="14" side_tool="false" />
       <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295688" sideWeight="0.5" order="2" side_tool="false" />
@@ -941,36 +972,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/commandes/AffichageCommandes.tml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="21" selection-start="1858" selection-end="1858" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/commandes/ModificationCommandes.tml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="39" selection-start="823" selection-end="823" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="3" selection-start="649" selection-end="649" vertical-scroll-proportion="-3.148148">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/dao/CommandesDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="19" selection-start="992" selection-end="992" vertical-scroll-proportion="0.6502732">
@@ -981,13 +982,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/dao/impl/CommandesDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="100" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/CommandesManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="26" selection-start="4568" selection-end="4568" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1006,13 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/commandes/SelectionCommandes.tml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="35" selection-start="1389" selection-end="1398" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="82" column="11" selection-start="1324" selection-end="1324" vertical-scroll-proportion="-9.52">
@@ -1027,9 +1014,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar!/javax/servlet/http/Cookie.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="41" selection-start="2076" selection-end="2076" vertical-scroll-proportion="-4.76">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1041,6 +1028,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/service/CommandesManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="26" selection-start="4568" selection-end="4568" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/pages/commandes/SelectionCommandes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="90" column="0" selection-start="2772" selection-end="2772" vertical-scroll-proportion="0.0">
@@ -1048,16 +1042,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar!/javax/servlet/http/Cookie.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/components/commandes/HeaderCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="208" column="12" selection-start="6550" selection-end="6550" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/commandes/ModificationCommandes.tml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="39" selection-start="823" selection-end="823" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/components/commandes/HeaderCommand.tml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/chantier/tapestry/components/commandes/HeaderCommand.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/commandes/AffichageCommandes.tml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="86" selection-start="2538" selection-end="2538" vertical-scroll-proportion="0.56462586">
+        <state line="36" column="30" selection-start="1678" selection-end="1678" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fr/chantier/tapestry/pages/commandes/SelectionCommandes.tml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="38" selection-start="3140" selection-end="3140" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="8" selection-start="2531" selection-end="2716" vertical-scroll-proportion="0.55284554">
           <folding />
         </state>
       </provider>

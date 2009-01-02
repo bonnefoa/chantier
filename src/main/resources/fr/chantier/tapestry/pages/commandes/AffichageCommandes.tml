@@ -30,19 +30,18 @@
                     <div t:type="commons/DateFormat" t:value="commandesEntity.commandDate" t:pattern="literal:MM/yy"/>
                 </td>
             </tr>
-            <tr class="displayNone">
-                <td colspan="10">
+            <tr>
+                <td colspan="8">
+                    ${commandesEntity.commandLibelle}
+                </td>
+                <td colspan="2">
                     <a t:type="pagelink" t:page="commandes/ModificationCommandes"
                        t:context="commandesEntity.commandId">Modifier la commande
                         n°${commandesEntity.commandId}
                     </a>
                 </td>
             </tr>
-            <tr>
-                <td colspan="10">
-                    ${commandesEntity.commandLibelle}
-                </td>
-            </tr>
+
             <!-- Cadre bas gauche -->
             <tr>
                 <td class="display_bottom" colspan="6">

@@ -60,10 +60,10 @@
                         </td>
                     </tr>
                     <tr class="display_sides">
-                        <td colspan="10">
+                        <td colspan="11">
 
                         </td>
-                        <td colspan="3">
+                        <td colspan="2">
                             <a t:type="pageLink" t:page="commandes/Affichage" t:context="commandesEntity.commandId">
                                 Afficher la commande
                             </a>

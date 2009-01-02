@@ -66,11 +66,11 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
             <version>3.3.1.GA</version>
         </dependency>
 
-        <dependency>
-        <groupId>postgresql</groupId>
-        <artifactId>postgresql</artifactId>
-        <version>8.3-603.jdbc4</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>postgresql</groupId>-->
+        <!--<artifactId>postgresql</artifactId>-->
+        <!--<version>8.3-603.jdbc4</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>mysql</groupId>
