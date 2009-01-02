@@ -91,6 +91,12 @@ h3 {
    text-align: center;
 }
 
+.row_checkbox {
+   width: 4%;
+   text-align: center;
+}
+
+
 .cellule_calc {
    border: 1px solid black;
 }

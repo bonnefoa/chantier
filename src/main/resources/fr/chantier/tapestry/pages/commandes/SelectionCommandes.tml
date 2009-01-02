@@ -30,7 +30,7 @@
                         <td class="display_4">
                             ${commandesEntity.clientsByClientId.clientName}
                         </td>
-                        <td class="display_2">
+                        <td class="display_5">
                             CA HT =
                         </td>
                         <td class="row_number">
@@ -50,11 +50,11 @@
                                 n°${commandesEntity.commandId}
                             </a>
                         </td>
-                        <td class="row_number">
+                        <td class="row_checkbox">
                             <label t:type="label" t:for="finaliseCheckbox">Finaliser :</label>
                             <input t:type="checkbox" t:id="finaliseCheckbox" t:value="finaliserChecked"/>
                         </td>
-                        <td class="row_number">
+                        <td class="row_checkbox">
                             <label t:type="label" t:for="suppressionCheckbox">Supprimer :</label>
                             <input t:type="checkbox" t:id="suppressionCheckbox" t:value="suppressionChecked"/>
                         </td>

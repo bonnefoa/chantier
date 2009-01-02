@@ -76,32 +76,37 @@ public class HeaderCommand {
     @PageLoaded
     private void onPageLoaded() {
         encoder = new EncoderBase64();
-        initCookies();
-        if (mois == null || annee == null) {
-            activateDate = true;
-            Calendar cal = Calendar.getInstance();
-            mois = Mois.lookup(cal.get(Calendar.MONTH));
-            annee = cal.get(Calendar.YEAR);
-        }
-        if (typeOrdonnancement == null) {
-            typeOrdonnancement = TypeOrdonnancement.DECROISSANTE;
-        }
-        if (typeClassement == null) {
-            typeClassement = TypeClassement.NUMERO;
-        }
-        if (typeFinalise == null) {
-            typeFinalise = TypeFinalise.LES_DEUX;
-        }
-        writeCookies();
     }
 
     private void initCookies() {
+        boolean write = false;
         mois = (Mois) getCookieValue(Mois.class.getCanonicalName());
         annee = (Integer) getCookieValue("Annee");
         typeOrdonnancement = (TypeOrdonnancement) getCookieValue(TypeOrdonnancement.class.getCanonicalName());
         typeClassement = (TypeClassement) getCookieValue(TypeClassement.class.getCanonicalName());
         typeFinalise = (TypeFinalise) getCookieValue(TypeFinalise.class.getCanonicalName());
         activateDate = (Boolean) getCookieValue("activateDate");
+        if (activateDate && (mois == null || annee == null)) {
+            Calendar cal = Calendar.getInstance();
+            mois = Mois.lookup(cal.get(Calendar.MONTH));
+            annee = cal.get(Calendar.YEAR);
+            write = true;
+        }
+        if (typeOrdonnancement == null) {
+            typeOrdonnancement = TypeOrdonnancement.DECROISSANTE;
+            write = true;
+        }
+        if (typeClassement == null) {
+            typeClassement = TypeClassement.NUMERO;
+            write = true;
+        }
+        if (typeFinalise == null) {
+            typeFinalise = TypeFinalise.LES_DEUX;
+            write = true;
+        }
+        if (write) {
+            writeCookies();
+        }
     }
 
 
@@ -111,12 +116,13 @@ public class HeaderCommand {
         createCookie(TypeOrdonnancement.class.getCanonicalName(), encoder.toClient(typeOrdonnancement));
         createCookie(TypeClassement.class.getCanonicalName(), encoder.toClient(typeClassement));
         createCookie(TypeFinalise.class.getCanonicalName(), encoder.toClient(typeFinalise));
-        createCookie("activateDate",encoder.toClient(activateDate));
+        createCookie("activateDate", encoder.toClient(activateDate));
     }
 
     private void createCookie(String name, String value) {
         Cookie cookie = new Cookie(name, value);
         cookie.setPath(request.getContextPath());
+        cookie.setMaxAge(Integer.MAX_VALUE);
         requestGlobals.getHTTPServletResponse().addCookie(cookie);
     }
 
@@ -181,14 +187,13 @@ public class HeaderCommand {
      * @return
      */
     public Collection<CommandesEntity> getCommandesEntityCollection() {
-        initCookies();        
+        initCookies();
         if (commandesEntity != null) {
             ArrayList<CommandesEntity> temp = new ArrayList<CommandesEntity>();
             temp.add(commandesEntity);
             commandesEntity = null;
             return temp;
         }
-        Date dateAfter = null;
         Date date = null;
         if (activateDate != null && activateDate) {
             calendar = new GregorianCalendar();
