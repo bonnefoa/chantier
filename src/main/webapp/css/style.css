@@ -199,6 +199,16 @@ h6, .display_heures, .display_sommes {
     border-right: 1px solid black;
 }
 
+.display_line_bottom_left{
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;  
+}
+
+.display_line_bottom_right{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
 .display_line_1 {
     width: 4.4%;
 }

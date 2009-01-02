@@ -202,11 +202,8 @@ public class HeaderCommand {
             calendar.set(Calendar.MONTH, mois.getI());
             date = calendar.getTime();
         }
-        if (commandesEntity != null) {
-            return commandesManager.findByCriterions(clientsEntity, typeClassement.getOrder(typeOrdonnancement), null, null);
-        }
         if (clientsEntity != null) {
-            return commandesManager.findByCriterions(clientsEntity, typeClassement.getOrder(typeOrdonnancement), typeFinalise.getCriterion(), date);
+            return commandesManager.findByCriterions(clientsEntity, typeClassement.getOrder(typeOrdonnancement), typeFinalise.getCriterion(), null);
         }
         if (typeFinalise.equals(TypeFinalise.COMMANDES_DU_MOIS_ET_NON_FINALISEES)) {
             return commandesManager.findNonFinaliseAndMonth(typeClassement.getOrder(typeOrdonnancement));
