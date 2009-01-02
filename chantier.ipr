@@ -706,6 +706,17 @@
         <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.4/servlet-api-2.4-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: mysql:mysql-connector-java:5.1.6">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6-sources.jar!/" />
+      </SOURCES>
+    </library>
   </component>
   <UsedPathMacros>
     <macro name="MAVEN_REPOSITORY" description="Maven Local Repostiry" />

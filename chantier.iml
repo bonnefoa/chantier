@@ -161,7 +161,7 @@
             <attribute name="method" value="1" />
             <attribute name="URI" value="/WEB-INF/lib/" />
           </containerElement>
-          <containerElement type="library" name="Maven: postgresql:postgresql:8.3-603.jdbc4" level="project">
+          <containerElement type="library" name="Maven: mysql:mysql-connector-java:5.1.6" level="project">
             <attribute name="method" value="1" />
             <attribute name="URI" value="/WEB-INF/lib/" />
           </containerElement>
@@ -203,19 +203,6 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library name="mysql:mysql-connector-java:5.1.6">
-        <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar!/" />
-        </CLASSES>
-        <JAVADOC>
-          <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6-javadoc.jar!/" />
-        </JAVADOC>
-        <SOURCES>
-          <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
     <orderEntry type="library" exported="" name="Maven: org.apache.tapestry:tapestry-core:5.0.15" level="project" />
     <orderEntry type="library" exported="" name="Maven: org.apache.tapestry:tapestry-ioc:5.0.15" level="project" />
     <orderEntry type="library" exported="" name="Maven: org.apache.tapestry:tapestry5-annotations:5.0.15" level="project" />
@@ -251,7 +238,7 @@
     <orderEntry type="library" exported="" name="Maven: ognl:ognl:2.6.9" level="project" />
     <orderEntry type="library" name="Maven: org.testng:testng:jdk15:5.1" level="project" />
     <orderEntry type="library" exported="" name="Maven: javax.transaction:jta:1.1" level="project" />
-    <orderEntry type="library" exported="" name="Maven: postgresql:postgresql:8.3-603.jdbc4" level="project" />
+    <orderEntry type="library" exported="" name="Maven: mysql:mysql-connector-java:5.1.6" level="project" />
     <orderEntry type="library" exported="" name="Maven: javax.servlet:servlet-api:2.4" level="project" />
   </component>
 </module>
