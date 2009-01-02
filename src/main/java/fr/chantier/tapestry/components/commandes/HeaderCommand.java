@@ -201,7 +201,7 @@ public class HeaderCommand {
             return commandesManager.findByCriterions(clientsEntity, typeClassement.getOrder(typeOrdonnancement), null, null);
         }
         if (typeFinalise.equals(TypeFinalise.COMMANDES_DU_MOIS_ET_NON_FINALISEES)) {
-            return commandesManager.findNonFinaliseAndMonth(typeClassement.getOrder(typeOrdonnancement), date);
+            return commandesManager.findNonFinaliseAndMonth(typeClassement.getOrder(typeOrdonnancement));
         }
         return commandesManager.findByCriterions(clientsEntity, typeClassement.getOrder(typeOrdonnancement), typeFinalise.getCriterion(), date);
     }

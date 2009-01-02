@@ -161,6 +161,10 @@
             <attribute name="method" value="1" />
             <attribute name="URI" value="/WEB-INF/lib/" />
           </containerElement>
+          <containerElement type="library" name="Maven: postgresql:postgresql:8.3-603.jdbc4" level="project">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/" />
+          </containerElement>
           <containerElement type="library" name="Maven: mysql:mysql-connector-java:5.1.6" level="project">
             <attribute name="method" value="1" />
             <attribute name="URI" value="/WEB-INF/lib/" />
@@ -238,6 +242,7 @@
     <orderEntry type="library" exported="" name="Maven: ognl:ognl:2.6.9" level="project" />
     <orderEntry type="library" name="Maven: org.testng:testng:jdk15:5.1" level="project" />
     <orderEntry type="library" exported="" name="Maven: javax.transaction:jta:1.1" level="project" />
+    <orderEntry type="library" exported="" name="Maven: postgresql:postgresql:8.3-603.jdbc4" level="project" />
     <orderEntry type="library" exported="" name="Maven: mysql:mysql-connector-java:5.1.6" level="project" />
     <orderEntry type="library" exported="" name="Maven: javax.servlet:servlet-api:2.4" level="project" />
   </component>

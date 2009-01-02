@@ -123,7 +123,7 @@ public class CommandesManagerImpl extends GenericHibernateManager<CommandesEntit
         return dao.findById(integer);
     }
 
-    public Collection<CommandesEntity> findNonFinaliseAndMonth(Order order, Date date) {
-        return dao.findNonFinaliseAndMonth(order,date);
+    public Collection<CommandesEntity> findNonFinaliseAndMonth(Order order) {
+        return dao.findNonFinaliseAndMonth(order);
     }
 }

@@ -34,8 +34,7 @@ public interface CommandesDAO extends GenericDAO<CommandesEntity, Integer> {
     /**
      * Recupere finalise et non finalisee
      * @param order
-     * @param date
      * @return
      */
-    Collection<CommandesEntity> findNonFinaliseAndMonth(Order order, Date date);
+    Collection<CommandesEntity> findNonFinaliseAndMonth(Order order);
 }

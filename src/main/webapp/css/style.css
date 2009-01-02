@@ -113,7 +113,7 @@ h3 {
 
 /*Partie Modify Commande*/
 .display_1 {
-    width: 11%;
+    width: 12%;
 }
 
 .display_2 {
@@ -121,7 +121,7 @@ h3 {
 }
 
 .display_3 {
-    width: 5%;
+    width: 6%;
 }
 
 .display_4 {
@@ -145,7 +145,7 @@ h3 {
 /* Partie Display */
 h6, .display_heures, .display_sommes {
     font-stretch: extra-condensed;
-    word-spacing: 1px;
+    word-spacing: 0px;
     font-style: normal;
     font-weight: normal;
     font-size: small;

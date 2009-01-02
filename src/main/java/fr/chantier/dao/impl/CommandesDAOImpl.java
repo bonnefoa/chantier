@@ -53,23 +53,20 @@ public class CommandesDAOImpl extends GenericHibernateDAO<CommandesEntity, Integ
         return new LinkedHashSet(crit.list());
     }
 
-    public Collection<CommandesEntity> findNonFinaliseAndMonth(Order order, Date date) {
+    public Collection<CommandesEntity> findNonFinaliseAndMonth(Order order) {
         Criteria crit = getSession().createCriteria(getPersistentClass());
         if (order != null) {
             crit.addOrder(order);
         }
-        if (date != null) {
-            Calendar cal = new GregorianCalendar();
-            cal.setTime(date);
-            int mois = cal.get(Calendar.MONTH) + 1;
-            String moisString = (mois > 9) ? mois + "" : "0" + mois;
-            crit.add(
-                    Restrictions.or(
-                            Restrictions.sqlRestriction("Command_date LIKE '" + cal.get(Calendar.YEAR)
-                                    + "-" + moisString + "%'"),
-                            Restrictions.eq("finalise", false)
-                    ));
-        }
+        Calendar cal = Calendar.getInstance();
+        int mois = cal.get(Calendar.MONTH) + 1;
+        String moisString = (mois > 9) ? mois + "" : "0" + mois;
+        crit.add(
+                Restrictions.or(
+                        Restrictions.sqlRestriction("Command_date LIKE '" + cal.get(Calendar.YEAR)
+                                + "-" + moisString + "%'"),
+                        Restrictions.eq("finalise", false)
+                ));
         return new LinkedHashSet(crit.list());
 
     }

@@ -51,11 +51,11 @@
                             </a>
                         </td>
                         <td class="row_number">
-                            <label t:type="label" t:for="finaliseCheckbox">Finaliser la commande:</label>
+                            <label t:type="label" t:for="finaliseCheckbox">Finaliser :</label>
                             <input t:type="checkbox" t:id="finaliseCheckbox" t:value="finaliserChecked"/>
                         </td>
                         <td class="row_number">
-                            <label t:type="label" t:for="suppressionCheckbox">Supprimer la commande:</label>
+                            <label t:type="label" t:for="suppressionCheckbox">Supprimer :</label>
                             <input t:type="checkbox" t:id="suppressionCheckbox" t:value="suppressionChecked"/>
                         </td>
                     </tr>

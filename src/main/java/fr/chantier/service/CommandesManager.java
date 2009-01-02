@@ -159,8 +159,7 @@ public interface CommandesManager extends GenericManager<CommandesEntity, Intege
     /**
      * Cherche par les criteres donnes
      * @param order
-     * @param date
      * @return
      */
-    Collection<CommandesEntity> findNonFinaliseAndMonth(Order order, Date date);
+    Collection<CommandesEntity> findNonFinaliseAndMonth(Order order);
 }
